@@ -162,24 +162,47 @@ function getTagHTML(tag, tagClasses) {
 function getJobListingHTML(jobData, filterTags = []) {
   const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
   let jobListingHTML = `
-        <div class="jobs__item">
-            <div class="jobs__column jobs__column--left">
-                <img src="${jobData.logo}" alt="${jobData.company}" class="jobs__img" />
-                <div class="jobs__info">
-                    <span class="jobs__company">${jobData.company}</span>
-                    <span class="jobs__title">${jobData.position}</span>
-                    
-                    <ul class="jobs__details">
-                        <li class="jobs__details-item">${jobData.postedAt}</li>
-                        <li class="jobs__details-item">${jobData.contract}</li>
-                        <li class="jobs__details-item">${jobData.location}</li>
-                    </ul>
-                </div>
+      <div class="jobs__item">
+        <a href="#modal-opened-${jobData.id}" id="modal-closed-${jobData.id}">
+          <div class="jobs__column jobs__column--left">
+            <img src="${jobData.logo}" alt="${jobData.company}" class="jobs__img" />
+            <div class="jobs__info">
+                <span class="jobs__company">${jobData.company}</span>
+                <span class="jobs__title">${jobData.position}</span>
+                
+                <ul class="jobs__details">
+                    <li class="jobs__details-item">${jobData.postedAt}</li>
+                    <li class="jobs__details-item">${jobData.contract}</li>
+                    <li class="jobs__details-item">${jobData.location}</li>
+                </ul>
             </div>
-            <div class="jobs__column jobs__column--right">
-                ${JOB_TAGS_PLACEHOLDER}
-            </div>
+          </div>
+        </a>
+        <div class="jobs__column jobs__column--right">
+            ${JOB_TAGS_PLACEHOLDER}
         </div>
+      </div>
+      </a>
+      <div class="modal-container" id="modal-opened-${jobData.id}">
+        <div class="modal_c">
+          <div class="modal__details">
+            <h1 class="modal__title">Modal Title</h1>
+            <p class="modal__description">
+              Sentence that will tell user what this modal is for or something.
+            </p>
+          </div>
+
+          <p class="modal__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex
+            dicta maiores libero minus obcaecati iste optio, eius labore
+            repellendus.
+          </p>
+
+          <button class="modal__btn" type="button">Apply &rarr;</button>
+
+          <a href="#modal-closed-${jobData.id}" class="link-2" aria-label="Job Description"></a>
+        </div>
+      </div>
     `;
 
   const tagsList = [
