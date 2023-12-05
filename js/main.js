@@ -3,7 +3,7 @@ const SEARCH_HIDDEN_CLASS = "search--hidden";
 const CLOSE_TAG_CLASS = "close-tag";
 const TAG_CLASS = "tag";
 
-const jobsListings = [
+let jobsListings = [
   {
     id: 1,
     company: "Photosnap",
@@ -157,6 +157,11 @@ function getTagHTML(tag, tagClasses) {
   return `<span class="${tagClasses}">
                 ${tag}
             </span>`;
+}
+
+function getJobsData() {
+  jobsListings = [];
+  setJobsListings();
 }
 
 function getJobListingHTML(jobData, filterTags = []) {

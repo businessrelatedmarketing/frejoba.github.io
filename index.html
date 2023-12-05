@@ -455,7 +455,7 @@
     <div class="container">
       <section class="search">
         <h2>Find Your Dream Job Now</h2>
-        <form action="#" method="get" class="job-search-input">
+        <form onsubmit="return false;" class="job-search-input">
           <div class="search-text-input">
             <input
               type="text"
@@ -510,7 +510,7 @@
             </select>
           </div>
           <!-- </div> -->
-          <button type="submit">Search</button>
+          <button onclick="getJobsData()">Search</button>
         </form>
       </section>
       <section class="job-listings">
