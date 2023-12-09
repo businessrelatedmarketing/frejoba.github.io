@@ -192,6 +192,10 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
+.text-search-input-box-mobile {
+  width: 70%;
+}
+
 .container h2 {
   text-align: center;
   color: #ff0000;
@@ -203,6 +207,38 @@ nav a:hover {
   padding: 5px;
   background-image: linear-gradient(to top, #fcecc8 0%, #e77630 150%);
   border-radius: 20px;
+}
+
+.loader {
+  z-index: 11px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .square-holder {
@@ -566,6 +602,7 @@ option {
 
 .modal_c {
   width: 60rem;
+  max-width: 90vw;
   padding: 4rem 2rem;
   border-radius: 0.8rem;
 
@@ -574,7 +611,24 @@ option {
   box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(236, 50%, 50%, 0.3);
   position: relative;
 
-  overflow: hidden;
+  max-height: 70vh;
+
+  overflow-y: scroll;
+}
+
+.modal_c::-webkit-scrollbar-track {
+  border: 5px solid white;
+  background-color: #b2bec3;
+}
+
+.modal_c::-webkit-scrollbar {
+  width: 15px;
+  background-color: #dfe6e9;
+}
+
+.modal_c::-webkit-scrollbar-thumb {
+  background-color: #74b9ff;
+  border-radius: 10px;
 }
 
 .modal__details {
@@ -622,7 +676,7 @@ option {
 
 .modal__btn {
   padding: 1rem 1.6rem;
-  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  border: 2px solid hsla(0, 0%, 100%, 0.6);
   border-radius: 100rem;
 
   color: inherit;
@@ -635,9 +689,22 @@ option {
   cursor: pointer;
 }
 
+.job-description {
+  padding: 20px;
+}
+
+.modal_c a {
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+.modal_c a:hover,
+.modal_c a:focus {
+  color: hsla(0, 0%, 100%, 1);
+}
+
 .modal__btn:hover,
 .modal__btn:focus {
-  border-color: hsla(0, 0%, 100%, 0.6);
+  border-color: hsla(0, 0%, 100%, 1);
   transform: translateY(-0.2rem);
 }
 

@@ -5,6 +5,8 @@ const SEARCH_HIDDEN_CLASS = "search--hidden";
 const CLOSE_TAG_CLASS = "close-tag";
 const TAG_CLASS = "tag";
 
+const parser = new DOMParser();
+
 /* Storing user's device details in a variable*/
 let details = navigator.userAgent;
 
@@ -21,6 +23,15 @@ function updateMobileUX() {
   if (isMobileDevice === true) {
     let jobs = document.querySelector(".jobs");
     jobs.classList.add("jobs_mobile");
+
+    let keywords = document.querySelector(".keywords");
+    keywords?.classList.add("text-search-input-box-mobile");
+
+    let location = document.querySelector(".location");
+    location?.classList.add("text-search-input-box-mobile");
+
+    let company = document.querySelector(".company");
+    company?.classList.add("text-search-input-box-mobile");
   }
 }
 
@@ -67,7 +78,41 @@ async function lk_jobs_list(
 
     const result = await response.json();
     jobsListings = result["result"];
-    // Handle the result as needed, e.g., update UI with job listings
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
+async function lk_job_description(jobUrl) {
+  // Define the request body
+  let requestBody = {
+    jobUrl: jobUrl.split("?")[0],
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(
+      api_server_domain + "linkedin-job-description",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(requestBody),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    jobsDescription = result["result"];
+    return jobsDescription;
   } catch (error) {
     console.error("Error during fetch:", error);
     // Handle errors, e.g., display an error message to the user
@@ -88,7 +133,7 @@ function getJobListingHTML(jobData, filterTags = []) {
   const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
   let jobListingHTML = `
       <div class="jobs__item">
-        <a href="#modal-opened-${jobData.id}" id="modal-closed-${jobData.id}">
+        <a href="#modal-opened-${jobData.id}" id="modal-closed-${jobData.id}" onclick="updateJobDescription(${jobData.id})">
           <div class="jobs__column jobs__column--left">
             <img src="${jobData.companyLogo}" alt="${jobData.company}" class="jobs__img" />
             <div class="jobs__info">
@@ -110,21 +155,9 @@ function getJobListingHTML(jobData, filterTags = []) {
       </a>
       <div class="modal-container" id="modal-opened-${jobData.id}">
         <div class="modal_c">
-          <div class="modal__details">
-            <h1 class="modal__title">Modal Title</h1>
-            <p class="modal__description">
-              Sentence that will tell user what this modal is for or something.
-            </p>
-          </div>
-
-          <p class="modal__text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex
-            dicta maiores libero minus obcaecati iste optio, eius labore
-            repellendus.
-          </p>
-
-          <button class="modal__btn" type="button">Apply &rarr;</button>
-
+          <div class="job-description"></div>
+          <div class="loader"><div class="lds-dual-ring" id="lds-dual-ring-${jobData.id}"></div></div>
+          <button class="modal__btn" type="button"><a href="${jobData.jobUrl}" target="_blank">Apply &rarr;</a></button>
           <a href="#modal-closed-${jobData.id}" class="link-2" aria-label="Job Description"></a>
         </div>
       </div>
@@ -150,6 +183,28 @@ function getJobListingHTML(jobData, filterTags = []) {
   }, "");
 
   return jobListingHTML.replace(JOB_TAGS_PLACEHOLDER, tagsString);
+}
+
+async function updateJobDescription(jobId) {
+  try {
+    jobsListings[jobId]["Description"] = await lk_job_description(
+      jobsListings[jobId]["jobUrl"]
+    );
+    document.querySelector(
+      `#modal-opened-${jobsListings[jobId].id} .job-description`
+    ).innerHTML = jobsListings[jobId]["Description"];
+    document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
+      "hidden";
+  } catch (error) {
+    console.error(error);
+    jobsListings[jobId]["Description"] = "";
+
+    document.querySelector(
+      `#modal-opened-${jobsListings[jobId].id} .job-description`
+    ).textContent = "Refer Apply Page for Job Description";
+    document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
+      "hidden";
+  }
 }
 
 function toggleClass(el, className) {
@@ -235,5 +290,5 @@ window.addEventListener("click", (event) => {
   setJobsListings(searchBarTags);
 });
 
-setJobsListings();
 updateMobileUX();
+setJobsListings();
