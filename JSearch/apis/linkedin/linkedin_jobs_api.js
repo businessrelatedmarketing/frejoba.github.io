@@ -116,44 +116,40 @@ Query.prototype.url = function (start) {
 };
 
 Query.prototype.getJobs = async function () {
-  try {
-    let parsedJobs,
-      resultCount = 1,
-      start = 0,
-      jobLimit = this.limit,
-      allJobs = [];
+  let parsedJobs,
+    resultCount = 1,
+    start = 0,
+    jobLimit = this.limit,
+    allJobs = [];
 
-    while (resultCount > 0) {
-      //fetch our data using our url generator with
-      //the page to start on
-      const { data } = await axios.get(this.url(start));
+  while (resultCount > 0) {
+    //fetch our data using our url generator with
+    //the page to start on
+    const { data } = await axios.get(this.url(start));
 
-      //select data so we can check the number of jobs returned
-      const $ = cheerio.load(data);
-      const jobs = $("li");
-      //if result count ends up being 0 we will stop getting more jobs
-      resultCount = jobs.length;
-      console.log("I got ", jobs.length, " jobs");
+    //select data so we can check the number of jobs returned
+    const $ = cheerio.load(data);
+    const jobs = $("li");
+    //if result count ends up being 0 we will stop getting more jobs
+    resultCount = jobs.length;
+    console.log("I got ", jobs.length, " jobs");
 
-      //to get the job data as objects with the desired details
-      parsedJobs = parseJobList(data);
-      allJobs.push(...parsedJobs);
+    //to get the job data as objects with the desired details
+    parsedJobs = parseJobList(data);
+    allJobs.push(...parsedJobs);
 
-      //increment by 25 bc thats how many jobs the AJAX request fetches at a time
-      start += 25;
+    //increment by 25 bc thats how many jobs the AJAX request fetches at a time
+    start += 25;
 
-      //in order to limit how many jobs are returned
-      //this if statment will return our function value after looping and removing excess jobs
-      if (jobLimit != 0 && allJobs.length > jobLimit) {
-        while (allJobs.length != jobLimit) allJobs.pop();
-        return allJobs;
-      }
+    //in order to limit how many jobs are returned
+    //this if statment will return our function value after looping and removing excess jobs
+    if (jobLimit != 0 && allJobs.length > jobLimit) {
+      while (allJobs.length != jobLimit) allJobs.pop();
+      return allJobs;
     }
-    //console.log(allJobs)
-    return allJobs;
-  } catch (error) {
-    console.error(error);
   }
+  //console.log(allJobs)
+  return allJobs;
 };
 function parseJobList(jobData) {
   const $ = cheerio.load(jobData);
@@ -162,6 +158,7 @@ function parseJobList(jobData) {
   const jobObjects = jobs
     .map((index, element) => {
       const job = $(element);
+
       const position = job.find(".base-search-card__title").text().trim() || "";
       const company =
         job.find(".base-search-card__subtitle").text().trim() || "";
@@ -180,7 +177,9 @@ function parseJobList(jobData) {
         job.find(".artdeco-entity-image").attr("data-ghost-url") || "";
       const agoTime =
         job.find(".job-search-card__listdate").text().trim() || "";
+
       return {
+        id: index,
         position: position,
         company: company,
         companyLogo: companyLogo,

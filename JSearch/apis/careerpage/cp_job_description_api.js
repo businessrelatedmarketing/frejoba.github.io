@@ -10,7 +10,7 @@ module.exports.query = (queryObject) => {
 //transfers object values passed to our .query to an obj we can access
 function Query(queryObj) {
   //query vars
-  this.host = queryObj.host || "www.linkedin.com";
+  this.host = queryObj.host;
 
   //api handles strings with spaces by replacing the values with %20
   this.keyword = queryObj.keyword?.replace(" ", "+") || "";

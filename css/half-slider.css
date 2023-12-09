@@ -354,7 +354,7 @@ option {
   text-align: center;
   font-size: 15px;
   color: inherit;
-  background-color: #6689CD;
+  background-color: #6689cd;
 }
 
 .jobs {
@@ -363,7 +363,12 @@ option {
   width: 100%;
   height: auto;
   display: grid;
-  grid-row-gap: 25px;
+  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+}
+
+.jobs_mobile {
+  grid-template-columns: none;
 }
 
 .jobs a:hover {
@@ -371,7 +376,7 @@ option {
 }
 
 .jobs__item {
-  width: 100%;
+  width: auto;
   height: auto;
   padding: 35px 40px;
   background-color: rgba(117, 230, 255, 0.1);
