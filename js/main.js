@@ -45,7 +45,7 @@ async function lk_jobs_list(
   remoteFilter = "remote",
   salary = "100000",
   experienceLevel = "entry level",
-  limit = "25"
+  limit = "10"
 ) {
   // Define the request body
   let requestBody = {
@@ -119,6 +119,40 @@ async function lk_job_description(jobUrl) {
   }
 }
 
+async function lk_job_companyUrl(jobUrl) {
+  // Define the request body
+  let requestBody = {
+    jobUrl: jobUrl.split("?")[0],
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(
+      api_server_domain + "linkedin-job-companylogo",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(requestBody),
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    logo = result["result"];
+    return logo;
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
 function getTagHTML(tag, tagClasses) {
   return `<span class="${tagClasses}">
                 ${tag}
@@ -133,16 +167,32 @@ function getJobListingHTML(jobData, filterTags = []) {
   const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
   let jobListingHTML = `
       <div class="jobs__item">
-        <a href="#modal-opened-${jobData.id}" id="modal-closed-${jobData.id}" onclick="updateJobDescription(${jobData.id})">
+        <a href="#modal-opened-${jobData.id}" id="modal-closed-${
+    jobData.id
+  }" onclick="updateJobDescription(${jobData.id})">
           <div class="jobs__column jobs__column--left">
-            <img src="${jobData.companyLogo}" alt="${jobData.company}" class="jobs__img" />
+            <img src="${jobData.companyLogo}" alt="${
+    jobData.company
+  }" class="jobs__img" />
             <div class="jobs__info">
                 <span class="jobs__company">${jobData.company}</span>
                 <span class="jobs__title">${jobData.position}</span>
                 <ul class="jobs__details">
-                  ${jobData.agoTime ? `<li class="jobs__details-item">${jobData.agoTime}</li>` : ''}
-                  ${jobData.salary ? `<li class="jobs__details-item">${jobData.salary}</li>` : ''}
-                  ${jobData.location ? `<li class="jobs__details-item">${jobData.location}</li>` : ''}
+                  ${
+                    jobData.agoTime
+                      ? `<li class="jobs__details-item">${jobData.agoTime}</li>`
+                      : ""
+                  }
+                  ${
+                    jobData.salary
+                      ? `<li class="jobs__details-item">${jobData.salary}</li>`
+                      : ""
+                  }
+                  ${
+                    jobData.location
+                      ? `<li class="jobs__details-item">${jobData.location}</li>`
+                      : ""
+                  }
                 </ul>
             </div>
           </div>
@@ -155,9 +205,15 @@ function getJobListingHTML(jobData, filterTags = []) {
       <div class="modal-container" id="modal-opened-${jobData.id}">
         <div class="modal_c">
           <div class="job-description"></div>
-          <div class="loader"><div class="lds-dual-ring" id="lds-dual-ring-${jobData.id}"></div></div>
-          <button class="modal__btn" type="button"><a href="${jobData.jobUrl}" target="_blank">Apply &rarr;</a></button>
-          <a href="#modal-closed-${jobData.id}" class="link-2" aria-label="Job Description"></a>
+          <div class="loader"><div class="lds-dual-ring" id="lds-dual-ring-${
+            jobData.id
+          }"></div></div>
+          <button class="modal__btn" type="button"><a href="${
+            jobData.jobUrl
+          }" target="_blank">Apply &rarr;</a></button>
+          <a href="#modal-closed-${
+            jobData.id
+          }" class="link-2" aria-label="Job Description"></a>
         </div>
       </div>
     `;
