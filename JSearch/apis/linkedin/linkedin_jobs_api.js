@@ -3,7 +3,7 @@ const axios = require("axios");
 
 module.exports.query = (queryObject) => {
   const query = new Query(queryObject);
-  console.log(query.url(0));
+  // console.log(query.url(0));
   return query.getJobs();
 };
 
@@ -132,7 +132,7 @@ Query.prototype.getJobs = async function () {
     const jobs = $("li");
     //if result count ends up being 0 we will stop getting more jobs
     resultCount = jobs.length;
-    console.log("I got ", jobs.length, " jobs");
+    // console.log("I got ", jobs.length, " jobs");
 
     //to get the job data as objects with the desired details
     parsedJobs = parseJobList(data);
