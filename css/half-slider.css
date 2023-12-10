@@ -162,6 +162,10 @@ nav a:hover {
   filter: grayscale(100%);
 }
 
+.slide-mobile {
+  filter: none;
+}
+
 .slide:hover {
   cursor: pointer;
   transform: scale(1.1);

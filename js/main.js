@@ -32,6 +32,11 @@ function updateMobileUX() {
 
     let company = document.querySelector(".company");
     company?.classList.add("text-search-input-box-mobile");
+
+    let slides = document.querySelectorAll(".slide");
+    for(let i=0;i<slides.length;i++) {
+      slides[i]?.classList.add("slide-mobile");
+    }
   }
 }
 
