@@ -1,4 +1,4 @@
-const api_server_domain = "http://localhost:1234/";
+const api_server_domain = "https://mailserver.crezalo.com/cmcs/";
 
 const TAG_ACTIVE_CLASS = "tag--active";
 const SEARCH_HIDDEN_CLASS = "search--hidden";
