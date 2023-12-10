@@ -176,7 +176,9 @@ function parseJobList(jobData) {
       const companyLogo =
         job.find(".artdeco-entity-image").attr("data-ghost-url") || "";
       const agoTime =
-        job.find(".job-search-card__listdate").text().trim() || "";
+        job.find(".job-search-card__listdate").text().trim() ||
+        job.find(".job-search-card__listdate--new").text().trim() ||
+        "";
 
       return {
         id: index,

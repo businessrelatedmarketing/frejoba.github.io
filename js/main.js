@@ -139,11 +139,10 @@ function getJobListingHTML(jobData, filterTags = []) {
             <div class="jobs__info">
                 <span class="jobs__company">${jobData.company}</span>
                 <span class="jobs__title">${jobData.position}</span>
-                
                 <ul class="jobs__details">
-                    <li class="jobs__details-item">${jobData.agoTime}</li>
-                    <li class="jobs__details-item">${jobData.salary}</li>
-                    <li class="jobs__details-item">${jobData.location}</li>
+                  ${jobData.agoTime ? `<li class="jobs__details-item">${jobData.agoTime}</li>` : ''}
+                  ${jobData.salary ? `<li class="jobs__details-item">${jobData.salary}</li>` : ''}
+                  ${jobData.location ? `<li class="jobs__details-item">${jobData.location}</li>` : ''}
                 </ul>
             </div>
           </div>
