@@ -19,6 +19,8 @@ let regexp = /android|iphone|kindle|ipad/i;
 it returns boolean value*/
 let isMobileDevice = regexp.test(details);
 
+let loaderDiv = document.querySelector(".svgLoader").outerHTML;
+
 function updateMobileUX() {
   if (isMobileDevice === true) {
     let jobs = document.querySelector(".jobs");
@@ -34,7 +36,7 @@ function updateMobileUX() {
     company?.classList.add("text-search-input-box-mobile");
 
     let slides = document.querySelectorAll(".slide");
-    for(let i=0;i<slides.length;i++) {
+    for (let i = 0; i < slides.length; i++) {
       slides[i]?.classList.add("slide-mobile");
     }
   }
@@ -43,25 +45,29 @@ function updateMobileUX() {
 let jobsListings = [];
 
 async function lk_jobs_list(
-  keyword = "software engineer",
-  location = "India",
-  dateSincePosted = "past Week",
-  jobType = "full time",
-  remoteFilter = "remote",
-  salary = "100000",
-  experienceLevel = "entry level",
-  limit = "10"
+  searchInputData = {
+    keyword: "software engineer",
+    location: "India",
+    company: "",
+    dateSincePosted: "past Week",
+    jobType: "full time",
+    remoteFilter: "remote",
+    salary: "100000",
+    experienceLevel: "entry level",
+    limit: "25",
+  }
 ) {
   // Define the request body
   let requestBody = {
-    keyword: keyword,
-    location: location,
-    dateSincePosted: dateSincePosted,
-    jobType: jobType,
-    remoteFilter: remoteFilter,
-    salary: salary,
-    experienceLevel: experienceLevel,
-    limit: limit,
+    keyword: searchInputData.keyword,
+    location: searchInputData.location,
+    company: searchInputData.company,
+    dateSincePosted: searchInputData.dateSincePosted,
+    jobType: searchInputData.jobType,
+    remoteFilter: searchInputData.remoteFilter,
+    salary: searchInputData.salary,
+    experienceLevel: searchInputData.experienceLevel,
+    limit: searchInputData.limit,
   };
 
   const headers = {
@@ -164,10 +170,6 @@ function getTagHTML(tag, tagClasses) {
             </span>`;
 }
 
-function getJobsData() {
-  setJobsListings();
-}
-
 function getJobListingHTML(jobData, filterTags = []) {
   const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
   let jobListingHTML = `
@@ -267,6 +269,32 @@ async function updateJobDescription(jobId) {
   }
 }
 
+function getSearchInputData() {
+  var searchInputData = {
+    keyword: "software engineer",
+    location: "India",
+    company: "",
+    dateSincePosted: "past Week",
+    jobType: "full time",
+    remoteFilter: "remote",
+    salary: "100000",
+    experienceLevel: "entry level",
+    limit: "25",
+  };
+
+  searchInputData.keyword =
+    document.getElementsByClassName("keywords")[0].value;
+  searchInputData.location =
+    document.getElementsByClassName("location")[0].value;
+  searchInputData.company = document.getElementsByClassName("company")[0].value;
+  searchInputData.jobType = document.getElementById("jobType").value;
+  searchInputData.remoteFilter = document.getElementById("remoteFilter").value;
+  searchInputData.experienceLevel =
+    document.getElementById("experienceLevel").value;
+
+  return searchInputData;
+}
+
 function toggleClass(el, className) {
   if (el.classList.contains(className)) {
     el.classList.remove(className);
@@ -291,8 +319,9 @@ function getSearchBarTags(tagValue, searchContentEl) {
   return searchBarTags;
 }
 
-async function setJobsListings(filterTags) {
-  await lk_jobs_list();
+async function setJobsListings(searchInputData, filterTags) {
+  document.getElementById("jobs").innerHTML = loaderDiv;
+  await lk_jobs_list(searchInputData);
   const jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
     return acc + getJobListingHTML(currentListing, filterTags);
   }, "");
@@ -316,6 +345,11 @@ function setSearchbarContent(searchContentEl, tags) {
   searchContentEl.innerHTML = tags.reduce((acc, currentTag) => {
     return acc + getTagHTML(currentTag, CLOSE_TAG_CLASS);
   }, "");
+}
+
+function getJobsData() {
+  var searchInputData = getSearchInputData();
+  setJobsListings(searchInputData, []);
 }
 
 function resetState(searchContentEl) {

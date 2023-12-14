@@ -1,6 +1,6 @@
 :root {
   --arrow-bg: rgba(255, 255, 255, 0.3);
-  --arrow-icon: url(https://monasteryeventcenter.com/wp-content/uploads/2018/12/white-down-arrow-png-2-300x300.png);
+  --arrow-icon: url("../img/arrow-down.png");
   --option-bg: white;
   --select-bg: rgba(255, 255, 255, 0.2);
   --highlight-color: #4eaabf;
@@ -351,6 +351,7 @@ nav a:hover {
 }
 
 footer {
+  bottom: 10px;
   margin-top: 50px;
 }
 
@@ -520,7 +521,7 @@ option {
   position: absolute;
   right: 0;
   top: 0;
-  background-image: url("./../images/icon-remove.svg");
+  background-image: url("./../img/svgs/icon-remove.svg");
   background-position: center;
   background-size: 15px;
   background-repeat: no-repeat;
@@ -797,4 +798,11 @@ option {
   left: 20px;
   color: hsla(0, 0%, 0%, 0.6);
   font-size: 1.6rem;
+}
+
+.svgLoader {
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
