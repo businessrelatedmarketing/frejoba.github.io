@@ -59,7 +59,7 @@ async function lk_jobs_list(
 ) {
   // Define the request body
   let requestBody = {
-    keyword: searchInputData.keyword,
+    keyword: searchInputData.keyword + " " + searchInputData.company,
     location: searchInputData.location,
     company: searchInputData.company,
     dateSincePosted: searchInputData.dateSincePosted,
