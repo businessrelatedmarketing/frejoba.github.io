@@ -352,6 +352,23 @@ function getJobsData() {
   setJobsListings(searchInputData, []);
 }
 
+function jobList(company) {
+  var searchInputData = {
+    keyword: "" + company,
+    location: "",
+    company: company,
+    // past month, past week, 24hr
+    dateSincePosted: "past month",
+    jobType: "",
+    remoteFilter: "",
+    salary: "",
+    experienceLevel: "",
+    limit: "50",
+  };
+  document.getElementsByClassName("company")[0].value = company;
+  setJobsListings(searchInputData, []);
+}
+
 function resetState(searchContentEl) {
   searchContentEl.innerHTML = "";
 
