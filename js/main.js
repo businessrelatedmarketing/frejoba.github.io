@@ -350,6 +350,7 @@ function setSearchbarContent(searchContentEl, tags) {
 function getJobsData() {
   var searchInputData = getSearchInputData();
   setJobsListings(searchInputData, []);
+  gaTrackJSearchEvent(searchInputData);
 }
 
 function jobList(company) {
@@ -367,6 +368,7 @@ function jobList(company) {
   };
   document.getElementsByClassName("company")[0].value = company;
   setJobsListings(searchInputData, []);
+  gaTrackCompanyClickEvent(company);
 }
 
 function resetState(searchContentEl) {
@@ -401,5 +403,21 @@ window.addEventListener("click", (event) => {
   setJobsListings(searchBarTags);
 });
 
+// Google Analytics tracking code
+function gaTrackPageview() {
+  gtag("event", "page_view");
+}
+
+function gaTrackJSearchEvent(searchInputData) {
+  gtag("event", "Search Button Click", searchInputData);
+}
+
+function gaTrackCompanyClickEvent(company) {
+  gtag("event", "Company Slide click", {
+    company: company,
+  });
+}
+
+gaTrackPageview();
 updateMobileUX();
 setJobsListings();
