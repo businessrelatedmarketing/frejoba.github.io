@@ -23,6 +23,17 @@ let loaderDiv = document.querySelector(".svgLoader").outerHTML;
 
 function updateMobileUX() {
   if (isMobileDevice === true) {
+    let slider_container = document.querySelector(".slider-container");
+    slider_container.style.visibility = "hidden";
+    slider_container.style.padding = 0;
+
+    let mobile_company_button = document.querySelector(
+      ".mobile-company-nav-button"
+    );
+    mobile_company_button.style.visibility = "visible";
+    mobile_company_button.style.height = "auto";
+    mobile_company_button.style.width = "auto";
+
     let jobs = document.querySelector(".jobs");
     jobs.classList.add("jobs_mobile");
 
@@ -322,6 +333,12 @@ function getSearchBarTags(tagValue, searchContentEl) {
 async function setJobsListings(searchInputData, filterTags) {
   document.getElementById("jobs").innerHTML = loaderDiv;
   await lk_jobs_list(searchInputData);
+  if (jobsListings.length == 0) {
+    await lk_jobs_list(searchInputData);
+    if (jobsListings.length == 0) {
+      await lk_jobs_list(searchInputData);
+    }
+  }
   const jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
     return acc + getJobListingHTML(currentListing, filterTags);
   }, "");

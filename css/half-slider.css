@@ -277,6 +277,14 @@ nav a:hover {
   border-radius: 20px;
 }
 
+.mobile-company-nav-button {
+  background-image: var(--modal-background);
+  border-radius: 20px;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
 .search-skill {
   width: 100%;
   height: auto;
@@ -805,4 +813,13 @@ option {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.collapse {
+  float: right;
+  font-size: 22px;
+}
+
+.nav {
+  margin-top: 5px;
 }
