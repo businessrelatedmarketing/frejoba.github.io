@@ -21,6 +21,11 @@ let isMobileDevice = regexp.test(details);
 
 let loaderDiv = document.querySelector(".svgLoader")?.outerHTML;
 let url = location.href;
+let urlcompany = "";
+if (url.includes("company")) {
+  urlcompany = url.split("company=")[1];
+  document.getElementsByClassName("company")[0].value = urlcompany;
+}
 
 console.log(url);
 
@@ -385,7 +390,6 @@ function getJobsData() {
 function jobList(company) {
   document.getElementsByClassName("company")[0].value = company;
   var searchInputData = getSearchInputData();
-  searchInputData.keyword += " " + company;
   searchInputData.company = company;
   searchInputData.dateSincePosted = "past month";
   searchInputData.limit = "100";
