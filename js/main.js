@@ -60,12 +60,12 @@ async function lk_jobs_list(
     keyword: "software engineer",
     location: "India",
     company: "",
-    dateSincePosted: "past Week",
+    dateSincePosted: "past month",
     jobType: "",
     remoteFilter: "",
     salary: "",
     experienceLevel: "entry level",
-    limit: "25",
+    limit: "100",
   }
 ) {
   // Define the request body
@@ -99,7 +99,18 @@ async function lk_jobs_list(
     }
 
     const result = await response.json();
-    jobsListings = result["result"];
+
+    if (searchInputData?.company != "") {
+      let companyReducedResult = [];
+      for (let i = 0; i < result["result"].length; i++) {
+        if (result["result"][i].company.includes(searchInputData.company)) {
+          companyReducedResult.push(result["result"][i]);
+        }
+      }
+      jobsListings = companyReducedResult;
+    } else {
+      jobsListings = result["result"];
+    }
   } catch (error) {
     console.error("Error during fetch:", error);
     // Handle errors, e.g., display an error message to the user
@@ -285,12 +296,12 @@ function getSearchInputData() {
     keyword: "software engineer",
     location: "India",
     company: "",
-    dateSincePosted: "past Week",
+    dateSincePosted: "past month",
     jobType: "",
     remoteFilter: "",
     salary: "",
     experienceLevel: "entry level",
-    limit: "25",
+    limit: "100",
   };
 
   searchInputData.keyword =
@@ -371,19 +382,12 @@ function getJobsData() {
 }
 
 function jobList(company) {
-  var searchInputData = {
-    keyword: "" + company,
-    location: "",
-    company: company,
-    // past month, past week, 24hr
-    dateSincePosted: "past month",
-    jobType: "",
-    remoteFilter: "",
-    salary: "",
-    experienceLevel: "",
-    limit: "50",
-  };
   document.getElementsByClassName("company")[0].value = company;
+  var searchInputData = getSearchInputData();
+  searchInputData.keyword += " " + company;
+  searchInputData.company = company;
+  searchInputData.dateSincePosted = "past month";
+  searchInputData.limit = "100";
   setJobsListings(searchInputData, []);
   gaTrackCompanyClickEvent(company);
 }
