@@ -894,6 +894,10 @@ caption {
   }
 }
 
-.company-body{
+.company-body {
   background-color: var(--company-page-bg-color);
+}
+
+.job-listings h5 {
+  margin-top: 30px;
 }

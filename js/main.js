@@ -71,7 +71,7 @@ async function lk_jobs_list(
     remoteFilter: "",
     salary: "",
     experienceLevel: "entry level",
-    limit: "100",
+    limit: "25",
   }
 ) {
   // Define the request body
@@ -349,6 +349,7 @@ function getSearchBarTags(tagValue, searchContentEl) {
 
 async function setJobsListings(searchInputData, filterTags) {
   document.getElementById("jobs").innerHTML = loaderDiv;
+  document.getElementById("jobListDisclaimer").textContent = "";
   await lk_jobs_list(searchInputData);
   if (jobsListings.length == 0) {
     await lk_jobs_list(searchInputData);
@@ -356,11 +357,26 @@ async function setJobsListings(searchInputData, filterTags) {
       await lk_jobs_list(searchInputData);
     }
   }
-  const jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
-    return acc + getJobListingHTML(currentListing, filterTags);
-  }, "");
+  let jobsListingsHTML;
+  if (jobsListings.length == 0) {
+    jobsListingsHTML = document.createElement("img");
+    jobsListingsHTML.src = "./img/NoResultFound.png";
+    jobsListingsHTML.alt = "na";
+    jobsListingsHTML.height = isMobileDevice ? "300" : "500";
+    jobsListingsHTML.width = isMobileDevice ? "300" : "500";
+    document.getElementById("jobs").innerHTML = "<h1>No Jobs Found ☹️</h1>";
+    document.getElementById("jobs").appendChild(jobsListingsHTML);
+    document.getElementById("jobListDisclaimer").textContent =
+      "*In case you are not satisfied, please refine your search with location, company name and other parameters...";
+  } else {
+    jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
+      return acc + getJobListingHTML(currentListing, filterTags);
+    }, "");
 
-  document.getElementById("jobs").innerHTML = jobsListingsHTML;
+    document.getElementById("jobs").innerHTML = jobsListingsHTML;
+    document.getElementById("jobListDisclaimer").textContent =
+      "*In case you are not satisfied, please refine your search with keywords, location, company and other parameters...";
+  }
 }
 
 function displaySearchWrapper(display = false) {
