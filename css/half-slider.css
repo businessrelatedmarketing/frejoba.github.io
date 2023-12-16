@@ -11,6 +11,7 @@
     hsl(236, 50%, 50%),
     hsl(195, 50%, 50%)
   );
+  --company-page-bg-color: #f1fcff;
 }
 
 html,
@@ -277,12 +278,26 @@ nav a:hover {
   border-radius: 20px;
 }
 
-.mobile-company-nav-button {
-  background-image: var(--modal-background);
-  border-radius: 20px;
+.mobile-company-nav-div {
   visibility: hidden;
   height: 0;
   width: 0;
+}
+
+.mobile-company-nav-div-show {
+  background-image: var(--modal-background);
+  border-radius: 20px;
+  visibility: visible;
+  height: 45px;
+  width: auto;
+  padding: 5px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  color: #fd8332;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .search-skill {
@@ -838,4 +853,47 @@ option {
 
 .alignLeft {
   text-align: left;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+table,
+th,
+td {
+  border: 1px dotted black;
+}
+
+td {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+caption {
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fd8332;
+  margin-bottom: 10px;
+}
+
+.companyNameContainer {
+  margin: 0 30vw 0 30vw;
+
+  h2 {
+    padding-left: 20px;
+  }
+
+  ol {
+    font-size: 16px;
+  }
+}
+
+.company-body{
+  background-color: var(--company-page-bg-color);
 }

@@ -19,7 +19,10 @@ let regexp = /android|iphone|kindle|ipad/i;
 it returns boolean value*/
 let isMobileDevice = regexp.test(details);
 
-let loaderDiv = document.querySelector(".svgLoader").outerHTML;
+let loaderDiv = document.querySelector(".svgLoader")?.outerHTML;
+let url = location.href;
+
+console.log(url);
 
 function updateMobileUX() {
   if (isMobileDevice === true) {
@@ -28,11 +31,9 @@ function updateMobileUX() {
     slider_container.style.padding = 0;
 
     let mobile_company_button = document.querySelector(
-      ".mobile-company-nav-button"
+      ".mobile-company-nav-div"
     );
-    mobile_company_button.style.visibility = "visible";
-    mobile_company_button.style.height = "auto";
-    mobile_company_button.style.width = "auto";
+    mobile_company_button.className = "mobile-company-nav-div-show";
 
     let jobs = document.querySelector(".jobs");
     jobs.classList.add("jobs_mobile");
