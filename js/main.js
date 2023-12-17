@@ -372,7 +372,7 @@ async function setJobsListings(searchInputData, filterTags) {
     document.getElementById("jobs").innerHTML = "<h1>No Jobs Found ☹️</h1>";
     document.getElementById("jobs").appendChild(jobsListingsHTML);
     document.getElementById("jobListDisclaimer").textContent =
-      "*In case you are not satisfied, please refine your search with location, company name and other parameters...";
+      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
   } else {
     jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
       return acc + getJobListingHTML(currentListing, filterTags);
@@ -380,7 +380,7 @@ async function setJobsListings(searchInputData, filterTags) {
 
     document.getElementById("jobs").innerHTML = jobsListingsHTML;
     document.getElementById("jobListDisclaimer").textContent =
-      "*In case you are not satisfied, please refine your search with keywords, location, company and other parameters...";
+      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
   }
 }
 
