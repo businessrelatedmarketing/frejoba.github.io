@@ -35,6 +35,11 @@ function updateMobileUX() {
     slider_container.style.visibility = "hidden";
     slider_container.style.padding = 0;
 
+    let sidenav_company_container = document.querySelector(
+      ".sidenav-company-container"
+    );
+    sidenav_company_container.className = "";
+
     let mobile_company_button = document.querySelector(
       ".mobile-company-nav-div"
     );
@@ -404,6 +409,7 @@ function getJobsData() {
 }
 
 function jobList(company) {
+  closeNav();
   document.getElementsByClassName("company")[0].value = company;
   var searchInputData = getSearchInputData();
   searchInputData.company = company;
@@ -444,6 +450,26 @@ window.addEventListener("click", (event) => {
   displaySearchWrapper(searchBarTags.length > 0);
   setJobsListings(searchBarTags);
 });
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0px";
+  document.getElementById("backdrop").style.display = "none";
+}
+
+function openNav() {
+  // If already open then close
+  if (
+    document.getElementById("mySidenav").style.width != "0px" &&
+    document.getElementById("mySidenav").style.width != ""
+  ) {
+    closeNav();
+  } else {
+    document.getElementById("mySidenav").style.width = isMobileDevice
+      ? "100%"
+      : "50%"; //opens side navbar by 70 percent
+    document.getElementById("backdrop").style.display = "block"; //displays overlay
+  }
+}
 
 // Google Analytics tracking code
 function gaTrackPageview() {
