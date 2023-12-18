@@ -491,6 +491,13 @@ function gaTrackCompanyClickEvent(company) {
   });
 }
 
+function gaTrackCompanyDetailChipClick(chip) {
+  gtag("event", "Company Link click", {
+    company: document.getElementsByClassName("company")[0].value,
+    chip: chip,
+  });
+}
+
 gaTrackPageview();
 updateMobileUX();
 setJobsListings();
