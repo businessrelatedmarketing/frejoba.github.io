@@ -45,6 +45,11 @@ function updateMobileUX() {
     );
     mobile_company_button.className = "mobile-company-nav-div-show";
 
+    let company_links_container = document.querySelector(
+      ".company-links-container"
+    );
+    company_links_container.className = "company-links-container-hide";
+
     let jobs = document.querySelector(".jobs");
     jobs.classList.add("jobs_mobile");
 
