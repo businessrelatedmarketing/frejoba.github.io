@@ -887,14 +887,14 @@ caption {
 
 .companyNameContainer {
   margin: 0 5vw 0 5vw;
+}
 
-  h2 {
-    padding-left: 20px;
-  }
+.companyNameContainer h2 {
+  padding-left: 20px;
+}
 
-  ol {
-    font-size: 16px;
-  }
+.companyNameContainer ol {
+  font-size: 16px;
 }
 
 .company-body {
@@ -917,27 +917,33 @@ caption {
 
 .parallax1 > use {
   animation: move-forever1 10s linear infinite;
-  &:nth-child(1) {
-    animation-delay: -2s;
-  }
 }
+
+.parallax1 > use:nth-child(1) {
+  animation-delay: -2s;
+}
+
 .parallax2 > use {
   animation: move-forever2 8s linear infinite;
-  &:nth-child(1) {
-    animation-delay: -2s;
-  }
+}
+
+.parallax2 > use:nth-child(1) {
+  animation-delay: -2s;
 }
 .parallax3 > use {
   animation: move-forever3 6s linear infinite;
-  &:nth-child(1) {
-    animation-delay: -2s;
-  }
 }
+
+.parallax3 > use:nth-child(1) {
+  animation-delay: -2s;
+}
+
 .parallax4 > use {
   animation: move-forever4 4s linear infinite;
-  &:nth-child(1) {
-    animation-delay: -2s;
-  }
+}
+
+.parallax4 > use:nth-child(1) {
+  animation-delay: -2s;
 }
 @keyframes move-forever1 {
   0% {
@@ -1059,77 +1065,79 @@ caption {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
 
-  .chip {
-    display: inline-flex;
-    flex-direction: row;
-    background-color: #e5e5e5;
-    border: none;
-    cursor: default;
-    height: 36px;
-    outline: none;
-    padding: 0;
-    font-size: 14px;
-    font-color: #333333;
-    font-family: "Open Sans", sans-serif;
-    white-space: nowrap;
-    align-items: center;
-    border-radius: 16px;
-    vertical-align: middle;
-    text-decoration: none;
-    justify-content: center;
-    margin-left: 12px;
-    margin-top: 10px;
-  }
+.company-links-container .chip {
+  display: inline-flex;
+  flex-direction: row;
+  background-color: #e5e5e5;
+  border: none;
+  cursor: default;
+  height: 36px;
+  outline: none;
+  padding: 0;
+  font-size: 14px;
+  font-color: #333333;
+  font-family: "Open Sans", sans-serif;
+  white-space: nowrap;
+  align-items: center;
+  border-radius: 16px;
+  vertical-align: middle;
+  text-decoration: none;
+  justify-content: center;
+  margin-left: 12px;
+  margin-top: 10px;
+}
 
-  .chip:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    text-decoration: underline;
-  }
+.company-links-container .chip:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
 
-  .chip-head {
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-    align-items: center;
-    user-select: none;
-    border-radius: 10%;
-    justify-content: center;
-    width: 36px;
-    color: #fff;
-    height: 36px;
-    font-size: 20px;
-    margin-right: -4px;
-  }
-  .chip-content {
-    cursor: inherit;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    white-space: nowrap;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+.company-links-container .chip-head {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  user-select: none;
+  border-radius: 10%;
+  justify-content: center;
+  width: 36px;
+  color: #fff;
+  height: 36px;
+  font-size: 20px;
+  margin-right: -4px;
+}
 
-  .chip-svg {
-    color: #999999;
-    cursor: pointer;
-    height: auto;
-    margin: 4px 4px 0 -8px;
-    fill: currentColor;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    font-size: 24px;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    user-select: none;
-    flex-shrink: 0;
-  }
-  .chip-svg:hover {
-    color: #666666;
-  }
+.company-links-container .chip-content {
+  cursor: inherit;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.company-links-container .chip-svg {
+  color: #999999;
+  cursor: pointer;
+  height: auto;
+  margin: 4px 4px 0 -8px;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 24px;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.company-links-container .chip-svg:hover {
+  color: #666666;
 }
