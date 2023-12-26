@@ -1,3 +1,4 @@
+A
 Accenture
 Accolite software
 Accord software
@@ -52,6 +53,10 @@ Auzmor
 Avail finance
 Avalara
 Avaya
+
+
+
+B
 Barclays
 Bain & Co
 BARC India
@@ -87,6 +92,10 @@ Browser stack
 Broadcom
 BukuWarung
 ByteDance
+
+
+
+C
 Cadence
 Capillary
 Capital One
@@ -128,6 +137,10 @@ Crowdstrike
 CSS Corp
 cure.fit
 Cvent
+
+
+
+D
 DailyHunt
 Dashlane
 Databricks
@@ -160,6 +173,10 @@ Dunzo
 duo
 DuPont
 dynatrace
+
+
+
+E
 EA Games
 eBay
 Enfussion
@@ -173,6 +190,10 @@ EXL Healthcare
 Expedia
 EY
 EyeROV
+
+
+
+F
 F5
 factset
 FamPay
@@ -192,6 +213,10 @@ Furlenco
 fyle
 Fico
 Fujitsu
+
+
+
+G
 Gartner
 Garuda Aerospace private Ltd
 GeeksForGeeks
@@ -217,6 +242,10 @@ Gravitont Rading
 Groupon
 Grofers
 Groww
+
+
+
+H
 Hackerearth
 HackerRank
 Hashedin
@@ -232,6 +261,10 @@ Honeywell
 HP
 Hub Spot
 Huggingface
+
+
+
+I
 IAC
 IBM
 IdeaForge
@@ -250,6 +283,10 @@ Intuit
 IP Infusion
 ISRO
 iQuanti
+
+
+
+J
 Jaguar
 Jio
 JM Financial
@@ -258,6 +295,10 @@ Juniper networks
 Jupiter money
 Juspay
 Jumbotail
+
+
+
+K
 Kantar
 Kesari bharat
 Keyence
@@ -266,6 +307,10 @@ Khatabook
 khoros
 KLA Tencor
 Koch
+
+
+
+L
 LambdaTest
 Lam Research
 Land rover
@@ -278,6 +323,10 @@ LinkedIn
 LogicFruit
 Logicmonitor
 Lowe's companies, inc
+
+
+
+M
 Magicpin
 MakeMyTrip
 Mastercard
@@ -299,6 +348,10 @@ MPL
 MTX
 Multiverse Software
 Myntra
+
+
+
+N
 Nagarro
 NASDAQ
 National instruments
@@ -317,6 +370,10 @@ Nutanix
 Nvidia
 Nykaa
 Ninjacart
+
+
+
+O
 Obvious
 Ocrolus
 Ola
@@ -329,6 +386,10 @@ Open AI
 OpenText
 Optum
 Optym
+
+
+
+P
 Palo Alto Networks
 Park+
 Paypal
@@ -354,10 +415,18 @@ Proximity Labs
 Prodapt
 Publicis Sapient
 PubMatic
+
+
+
+Q
 Qualcomm
 Quantiphi
 QuickSell
 Quora
+
+
+
+R
 Ramp
 Razorpay
 Red hat
@@ -368,6 +437,10 @@ Rivigo
 Rocket Companies
 Rockstar Games
 Rubrik
+
+
+
+S
 Saavan
 Sabre corporation
 SalaryBox
@@ -399,6 +472,10 @@ Stripe
 Sureify
 Swiggy
 Synopsys
+
+
+
+T
 Target
 TATA Advanced Sysytems Ltd
 TATA nexarc
@@ -419,6 +496,10 @@ Treebo Hotels
 Turvo
 Twilio
 Twitter
+
+
+
+U
 Uber
 Ubisoft
 Udaan
@@ -430,12 +511,20 @@ Upgrad
 Upstox
 Upwork
 Urban company
+
+
+
+V
 Valuefy
 Viasat
 Vicara
 Visa
 Vmware
 Vogo
+
+
+
+W
 Walmart
 Warner Bros.
 Wells Fargo
@@ -443,12 +532,24 @@ Western Digital
 Whatfix
 Wooqer
 worldQuant
+
+
+
+X
 Xiaomi
 Xicom Technologies
+
+
+
+Y
 Yahoo
 yellow.ai
 yugabyte
 Yulu Bikes
+
+
+
+Z
 zerodha
 Zeta
 ZivaMe
@@ -456,8 +557,854 @@ zoho
 Zomato
 ZoomCar
 ZS
+
+
+
+0-9
 1 mg
 3i Infotech
 4i Apps
 314e Corporation
 [24]7.ai
+
+
+A
+abiturma
+Ably
+Abstract API
+acct
+Acivilate
+Acquia
+ActiveCampaign
+Ad Hoc
+Adaface
+AddStructure
+Adeva
+Adzuna
+AE Studio
+Aerolab
+Aerostrat
+AgFlow
+Aha!
+Aim India
+Airbank
+Airbyte
+AirGarage
+AirTreks
+Aivitex
+Alami
+Alan
+Algorand
+Algorithmia
+ALICE
+Alight Solutions
+Alley
+allyDVM
+AlphaSights
+Amazon
+Ambaum
+Andela
+Animalz
+Annertech
+Anomali
+apartment therapy
+Appinio
+Applaudo
+Appstractor Corporation
+Appwrite
+argyle
+ARK
+Arkency
+Art & Logic
+Artefactual Systems
+Articulate
+Astronomer
+Atlassian
+Audiense
+Aula Education
+Auth0
+Automattic
+Axelerant
+Axios
+
+
+
+B
+Bairesdev
+Balena
+Balsamiq
+Bandcamp
+BandLab
+Bandzoogle
+Baremetrics
+Basecamp
+Bear Group
+BeBanjo
+BeenVerified
+Best Practical Solutions
+Betable
+BetaPeak
+BetterUp
+Beyond Company
+BeyondPricing
+Big Cartel
+Bill
+Bit Zesty
+Bitnami
+Bitovi
+Bizink
+Blameless
+Bloc
+BlueCat Networks
+Bluespark
+Boldare
+Bonsai
+Bounteous
+Brainstorm Force
+Brave Investments
+Bright Funds
+Brikl
+BriteCore
+Broadwing
+Buffer
+Bugfender
+BuySellAds
+
+
+
+C
+Cabify
+Calamari
+Calibre
+CANCOM
+Canonical
+Capchase
+Capital One
+Carbon Black
+Cards Against Humanity
+CareCru
+CareMessage
+CartoDB
+CartStack
+Casumo
+Celsius
+ChainLink Labs
+Chargify
+charity: water
+ChatGen
+Checkly
+Chef
+ChefsClub
+Chess
+Chroma
+CircleCI
+Circonus
+CivicActions
+Civo
+Clevertech
+ClickUp
+Clootrack
+Close
+CloudApp
+Coalition Technologies
+Code Like a Girl
+Codea IT
+CodePen
+CodeSandbox
+Codeship
+Codestunts
+Cofense
+Coinbase
+Coingape
+Collabora
+Comet
+Compose
+Compucorp
+Connexa
+ConsenSys
+Consumer Financial Protection Bureau
+Continu
+Conversio
+Convert
+Coodesh
+Core-Apps
+CoreOS
+Corgibytes
+Coursera
+Crossover
+Crowdstrike
+CrowdTangle
+Cueup
+Customer.io
+Cuvette
+CVS Health
+CWT
+Cyber Whale
+
+
+
+D
+Dalenys
+DappRadar
+DareCode
+DashboardHub
+Dashlane
+Data Science Brigade
+Data Science Dojo
+DataCamp
+Datadog
+DataStax
+Datica
+DealDash
+Delighted
+Designcode
+Deskpass
+Dev Spotlight
+Devsquad
+Dgraph
+DigitalOcean
+Digitise
+Discord
+Discourse
+DNSimple
+Docker
+Doist
+Donut App
+DroneDeploy
+Dropbox
+Drupal Jedi
+DuckDuckGo
+DynaPictures
+
+
+
+E
+EarthOfDrones
+EatStreet
+EBSCO Information Services
+Eco-Mind
+Edgar
+Edgio
+Edify
+eFishery
+Elastic
+Emsisoft
+EngineYard (Support Team)
+Enjoei
+Enok
+Entrision
+Envato
+Envoy
+Epam
+Epic Games
+Epilocal
+Episource
+Equal Experts Portugal
+Ergeon
+Estately
+Etch
+Etsy
+EVELO
+Evil Martians
+Evrone
+ExportData
+Eyeo (Adblock Plus)
+
+
+
+F
+FactorialHR
+Fairwinds
+Faithlife
+Fastly
+FATMAP
+Fauna
+Featurist
+Fetlife
+FFW Agency
+Filament Group
+Findify
+FingerprintJS
+Fire Engine Red
+Fireball Labs
+Fiverr
+FivexL
+Flexera
+FlightAware
+Flip
+Flowing
+Fly.io
+FMX
+Focusnetworks
+fohandboh
+Formidable
+Formstack
+Four Kitchens
+Fraudio
+Freeagent
+Freeletics
+Fuel Made
+FullFabric
+Functionize
+
+
+
+G
+Gaggle
+Geckoboard
+General Assembly
+GEO Jobe
+Gerencianet
+GFT
+Ghost Foundation
+Ghost Inspector
+Giant
+Giant Swarm
+GigSalad
+Gitbook
+GitHub
+GitLab
+GitPrime
+Glenn Website Design
+Glitch
+Gluware
+GoDaddy
+GoHiring
+Gojob
+Gorman Health Group
+GotSoccer
+Grafana Labs
+Granicus
+Graylog
+Gremlin
+Gridium
+Groove
+Grou.ps
+Grubhub
+Gruntwork
+GuideSmiths
+
+
+
+H
+Hack Reactor Remote
+Hanno
+Hanzo
+Happy Cog
+Harvest
+Hashex
+HashiCorp
+HE:labs
+Headway
+Healthfinch
+Heap
+Heetch
+Help Scout
+Heroku
+Hireology
+HomeFlicWeGrow
+HomeValet
+Honeybadger
+Honeycomb
+Hopper
+Hotjar
+Hudl
+Hugo
+Human Made
+HUSL Digital
+Hypergiant
+Hyperion
+Hypothesis
+
+
+
+I
+IBM
+iClinic
+IDoneThis
+iFit
+Igalia
+Imagine Learning
+Impala
+Impira
+Implisense
+Incsub
+Infinite Red
+InfluxData
+Inpsyde
+InQuicker
+Inshorts
+Instamobile
+Instructure
+Intellum
+Interactive Intelligence
+Intercom
+Interpersonal Frequency (I.F.)
+Intevity
+Intuit Inc.
+Intuition Machines, Inc
+InVision
+IOHK
+IOpipe
+iOS App Templates
+IPInfo
+IPS Group, Inc.
+IQVIA
+iRonin
+Iterative
+iwantmyname
+
+
+
+J
+Jackson River
+Jaya Tech
+JBS Custom Software Solutions
+Jitbit
+Jitera
+Jobsity
+Jolly Good Code
+journy.io
+Joyent
+JupiterOne
+
+
+
+K
+Kaggle
+kea
+Keen IO
+Kentik
+Khan Academy
+KickBack Rewards Systems
+Kinsta
+Kiprosh
+Kissmetrics
+Klaviyo
+Knack
+Kodify
+Koding
+Komoot
+Kona
+Konkurenta
+Kraken
+Kuali
+
+
+
+L
+Labelbox
+Lambda School
+Lambert Labs
+LaterPay
+Leadership Success
+Leadfeeder
+LeadIQ
+Let's Encrypt
+Lifen
+Lifetime Value Company
+Lightbend
+Lightspeed
+Linaro
+Lincoln Loop
+LINE Plus Corporation
+Link11
+Linux Foundation
+LionSher
+Litmus
+LivePerson
+Loadsys Web Strategies
+Localistico
+LogDNA
+Lullabot
+Luxoft
+Lyseon Tech
+Lytx
+
+
+
+M
+madewithlove
+Madisoft
+MailerLite
+Manifold
+Mapbox
+Marco Polo
+Marketade
+MarsBased
+Massive Pixel Creation
+Maxicus
+Mayvue
+Mediacurrent
+Mediavine
+Medium
+Memberful
+Memory
+Mercari
+Merico
+MeridianLink
+MetaLab
+MetaMask
+MeteorOps
+Microsoft
+Mindful
+Mixcloud
+Mixmax
+MixRank
+Mobile Jazz
+Modern Health
+Modern Tribe
+Modsquad
+Molteo
+MongoDB
+Monthly
+Mozilla
+mtc.
+Muck Rack
+Mux
+Mycelium
+MySQL
+
+
+
+N
+Nagarro
+Nationwide
+NetApp
+Netguru
+Netris
+Netsparker
+Nettl Edinburgh
+New Context
+NEXT
+No Code No Problem
+NodeSource
+NoRedInk
+Novoda
+npm
+Nuage
+Nuna
+Nvidia
+
+
+
+O
+O'Reilly Media
+O'Reilly Online Learning
+Ocient
+Octopus Deploy
+Oddball
+Okta
+Olark
+Olist
+Ollie
+Ollie Order
+Olo
+OmbuLabs
+OmniTI
+Onna
+OnTheGoSystems
+Opencity Labs
+OpenCraft
+OpenZeppelin
+Optoro
+Oracle
+Ordermentum
+Our-Hometown Inc.
+OutsourcingDev
+Over
+
+
+
+P
+Packlink
+Pagepro
+PagerDuty
+Paktor
+Palantir.net
+Panther Labs
+Parabol
+Park Assist
+Parsely
+Particular Software
+Pathable
+Payfully
+Paylocity
+PayScale
+Paytm Labs
+PayU
+Peachworks
+PeopleDoc
+Percona
+Pex
+Plai
+Platform Builders
+Platform.sh
+Pleo
+Plex
+PNC Financial Services
+Polygon
+PowerSchool
+Pragma
+Precision Nutrition
+Predict Mobile
+Prelude
+PreviousNext
+Prezi
+Prezly
+PricewaterhouseCoope rs
+Primer
+Prisma
+PrivacyCloud
+Procenge Tecnologia
+Procurify
+Progress Engine
+Prominent Edge
+Puppet
+
+
+
+Q
+Quaderno
+Quantify
+QuestDB
+Quora
+
+
+
+R
+Rackspace
+Raft
+Rainforest QA
+Rakuten Travel Xchange
+Ramp
+Reaction Commerce
+ReactiveOps, Inc.
+real.digital
+RealtimeCRM
+RebelMouse
+Reboot Studio
+ReCharge
+Recurly
+Red Hat
+Reddit
+RedMonk
+Redox
+Reducer
+reinteractive
+Remote Garage
+RemoteBase
+RenoFi
+Replit
+Research Square
+Revolut
+Roadtrippers
+Rocket.Chat
+rtCamp
+
+
+
+S
+Safeguard Global
+Salesforce
+Sandhills Development
+Scalac
+Scandit
+Scopic Software
+ScrapingBee
+Scrapinghub
+ScyllaDB
+Seaplane
+SecurityScorecard
+Seeq
+Semaphore
+Sendwave
+SerpApi
+Server Density
+ServMask
+Session
+Shareup
+Shippabo
+Shogun
+Shopify
+Sigma Defense
+SignEasy
+Silverfin
+simplabs
+SimpleTexting
+Six to Start
+Skillcrush
+Skillshare
+Skyrocket Ventures
+SmartCash
+Smile.io
+Smmile Digital
+SmugMug
+Socket Supply Co.
+SoftwareMill
+Sommo
+Soostone
+Soshace
+Spoqa
+Spotify
+Spreaker
+Spreedly
+Spruce
+Stack Exchange
+Stairlin
+Status
+Stencil
+Sticker Mule
+Stitch Fix
+StoneCo
+StormX
+Strapi
+StreamNative
+Stripe
+StudySoup
+Superplayer & Co
+Surevine
+SUSE
+Sutherland CloudSource
+SweetRush
+Swimlane
+Sysdig◻
+
+
+
+T
+Tag1 Consulting
+Taledo
+Taplytics
+Taskade
+TatvaSoft
+TaxJar
+Teamflow
+TeamSnap
+TeamUltra
+TED
+Teleport
+Telerik
+Telestax
+Tenable
+Teravision Technologies
+Test Double
+TestGorilla
+The Crafters Lab
+The Grid
+The Publisher Desk
+The Scale Factory
+The Wirecutter
+TheoremOne
+Thinkful
+Third Iron
+Thorn
+TimeSpot
+Tipe
+Toast
+toggl
+Toptal
+Tower
+Tractionboard ◻
+Transition Technologies - Advanced Solutions
+Transloadit
+Travis
+Travis CI
+Treehouse
+Trello
+Truelogic
+TrussWorks
+Tuft & Needle
+Turing
+Twilio
+Two
+
+
+
+U
+Udacity
+Uhuru
+Uncapped
+Upwork Pro
+Upworthy
+USAA
+Ushahidi
+uShip
+
+
+
+V
+Valimail
+Varnish Software
+vast limits
+Vercel
+Veryfi
+Viperdev
+Virta Health
+VMware
+voiio
+Vox Media (Product Team)
+Voxy
+VSHN
+
+
+
+W
+WalletHub
+WebDevStudios
+WebFX
+Webikon
+Webrunners
+Wells Fargo
+wemake.services
+WeMakeMVP
+Whitecap SEO
+Whitespectre
+WikiHow
+Wikimedia Foundation
+Wildbit
+Wizeline
+Wolfram
+Wolverine Trading
+Wombat Security Technologies
+WP-Media
+
+
+
+X
+X-Team
+Xapo
+XP Inc
+
+
+
+Y
+Yandex
+YAZIO
+Yodo1
+Yonder
+You are launched
+You Need A Budget
+YouCanBook.me Ltd
+
+
+
+Z
+ZAMP
+Zapier
+Zeit.io
+ZenRows
+Zignaly.com
+Zip.co
+Zolar
+Zup
+
+
+
+0-9
+10up
+15Five
+17hats
+18F
+1Password
+42 Technologies
