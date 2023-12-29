@@ -1,3 +1,4 @@
 node_modules/
 yarn.json
 package-lock.json
+.env
