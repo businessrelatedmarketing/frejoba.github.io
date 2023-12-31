@@ -66,6 +66,8 @@ function updateMobileUX() {
     for (let i = 0; i < slides.length; i++) {
       slides[i]?.classList.add("slide-mobile");
     }
+  } else {
+    sideNotification();
   }
 }
 
@@ -474,6 +476,73 @@ function openNav() {
       : "50%"; //opens side navbar by 70 percent
     document.getElementById("backdrop").style.display = "block"; //displays overlay
   }
+}
+
+function sideNotification() {
+  var r_text = new Array();
+  r_text[0] = "Bengaluru";
+  r_text[1] = "Hyderabad";
+  r_text[2] = "Delhi";
+  r_text[3] = "Mumbai";
+  r_text[5] = "Pune";
+  r_text[4] = "Noida";
+  r_text[6] = "Chennai";
+
+  var r_map = new Array();
+  r_map[0] = "./img/anonymousWoman.png";
+  r_map[1] = "./img/anonymousMan.png";
+
+  var r_product = new Array();
+  r_product[0] = "Microsoft";
+  r_product[1] = "Google";
+  r_product[2] = "Amazon";
+  r_product[3] = "Uber";
+  r_product[4] = "LinkedIn";
+  r_product[5] = "Sprinklr";
+  r_product[6] = "Salesforce";
+  r_product[7] = "Oracle";
+  r_product[8] = "Adobe";
+
+  setInterval(function () {
+    $(".custom-social-proof").stop().slideToggle("slow");
+  }, 3000);
+  $(".custom-close").click(function () {
+    $(".custom-social-proof").stop().slideToggle("slow");
+  });
+
+  setInterval(function () {
+    document
+      .querySelector("#csp_map")
+      .setAttribute("src", r_map[Math.floor(2 * Math.random())]);
+    document.querySelector("#city").textContent =
+      r_text[Math.floor(7 * Math.random())];
+    document.querySelector("#csp_company").textContent =
+      r_product[Math.floor(9 * Math.random())];
+    document.querySelector("#time").textContent = Math.floor(5 * Math.random());
+  }, 6000);
+}
+
+function disableCSP() {
+  $(".custom-social-proof").style = "display: none;";
+}
+
+function openVertical(name) {
+  // name : <!-- job-listings, interview-questions, interview-experience, salary-discussions, culture, compare-with-faang -->
+  var ansChips = document.querySelectorAll(".chip");
+  var ansVerticals = document.querySelectorAll("#answer-vertical");
+
+  for (let i = 0; i < ansVerticals.length; i++) {
+    if (ansVerticals[i].className.includes(name)) {
+      ansVerticals[i].classList.remove("hide");
+      ansChips[i].classList.add("active");
+    } else {
+      ansVerticals[i].classList.add("hide");
+      ansChips[i].classList.remove("active");
+    }
+  }
+
+  // GA Track Vertical Click Success
+  gaTrackCompanyDetailChipClick(name);
 }
 
 // Google Analytics tracking code

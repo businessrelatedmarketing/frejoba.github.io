@@ -8559,55 +8559,72 @@
           <button onclick="getJobsData()">Search</button>
         </form>
       </section>
-
+      <!-- job-listings, interview-questions, interview-experience, salary-discussions, culture, compare-with-faang -->
       <div class="company-links-container">
         <a
-          class="chip"
-          id="cp_chip"
-          onclick='gaTrackCompanyDetailChipClick("career page")'
+          class="chip active"
+          id="job-listings_chip"
+          onclick='openVertical("job-listings")'
         >
           <img
             class="chip-head"
             src="https://media.licdn.com/dms/image/C4D0BAQELL3B0KmtQCw/company-logo_100_100/0/1630538686266?e=2147483647&v=beta&t=UCtJdSzi46pjLRUjqgEuszstNXiwfHlSgtPTlHFq_6A"
           />
-          <div class="chip-content">Career Page</div>
+          <div class="chip-content">Job Listings</div>
         </a>
         <a
           class="chip"
-          id="blind_chip"
-          onclick='gaTrackCompanyDetailChipClick("blind")'
+          id="interviewQuestions_chip"
+          onclick='openVertical("interview-questions")'
         >
           <img
             class="chip-head"
             src="https://th.bing.com/th?id=ODLS.4174e30d-0a4f-424c-8e92-458e9025c0dc&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
           />
-          <div class="chip-content">Blind</div>
+          <div class="chip-content">Interview Questions</div>
         </a>
         <a
           class="chip"
-          id="levels_chip"
-          onclick='gaTrackCompanyDetailChipClick("levels")'
+          id="interview-experience_chip"
+          onclick='openVertical("interview-experience")'
         >
           <img
             class="chip-head"
             src="https://th.bing.com/th?id=ODLS.f6bdbb06-4317-4733-8b07-2e60af3ad5ca&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
           />
-          <div class="chip-content">Levels.fyi</div>
+          <div class="chip-content">Interview Experience</div>
         </a>
         <a
           class="chip"
-          id="linkedin_chip"
-          onclick='gaTrackCompanyDetailChipClick("linkedin")'
+          id="salary-discussions_chip"
+          onclick='openVertical("salary-discussions")'
         >
           <img
             class="chip-head"
             src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
           />
-          <div class="chip-content">Linkedin</div>
+          <div class="chip-content">Salary Discussions</div>
+        </a>
+        <a class="chip" id="culture_chip" onclick='openVertical("culture")'>
+          <img
+            class="chip-head"
+            src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+          />
+          <div class="chip-content">Culture</div>
+        </a>
+        <a
+          class="chip"
+          id="compare-with-faang_chip"
+          onclick='openVertical("compare-with-faang")'
+        >
+          <img
+            class="chip-head"
+            src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+          />
+          <div class="chip-content">Compare With FAANG</div>
         </a>
       </div>
-
-      <section class="job-listings">
+      <section class="job-listings" id="answer-vertical">
         <h2>Latest Job Listings</h2>
         <div class="container" id="joblisting-container">
           <div id="search" class="search-skill search--hidden">
@@ -8620,6 +8637,81 @@
           <div class="jobs" id="jobs">
             <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
           </div>
+        </div>
+      </section>
+      <section class="interview-questions hide" id="answer-vertical">
+        <h2>Interview Questions</h2>
+        <div class="container" id="joblisting-container">
+          <div id="search" class="search-skill search--hidden"></div>
+          <h5 id="jobListDisclaimer"></h5>
+          <div class="jobs" id="jobs">
+            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+          </div>
+        </div>
+      </section>
+      <section class="interview-experience hide" id="answer-vertical">
+        <h2>Interview Experiences</h2>
+        <div class="container" id="joblisting-container">
+          <div id="search" class="search-skill search--hidden"></div>
+          <h5 id="jobListDisclaimer"></h5>
+          <div class="jobs" id="jobs">
+            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+          </div>
+        </div>
+      </section>
+      <section class="salary-discussions hide" id="answer-vertical">
+        <h2>Salary Discussions</h2>
+        <div class="container" id="joblisting-container">
+          <div id="search" class="search-skill search--hidden"></div>
+          <h5 id="jobListDisclaimer"></h5>
+          <div class="jobs" id="jobs">
+            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+          </div>
+        </div>
+      </section>
+      <section class="culture hide" id="answer-vertical">
+        <h2>Company Culture Discussions</h2>
+        <div class="container" id="joblisting-container">
+          <div id="search" class="search-skill search--hidden"></div>
+          <h5 id="jobListDisclaimer"></h5>
+          <div class="jobs" id="jobs">
+            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+          </div>
+        </div>
+      </section>
+      <section class="compare-with-faang hide" id="answer-vertical">
+        <h2>Compare Levels with FAANG Companies</h2>
+        <div class="container" id="joblisting-container">
+          <div id="search" class="search-skill search--hidden"></div>
+          <h5 id="jobListDisclaimer"></h5>
+          <div class="jobs" id="jobs">
+            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+          </div>
+        </div>
+      </section>
+      <section class="custom-social-proof">
+        <div class="custom-notification">
+          <div class="custom-notification-container">
+            <div class="custom-notification-image-wrapper">
+              <img
+                id="csp_map"
+                src="./img/anonymousMan.png"
+                style="width: 50px; height: 50px"
+              />
+            </div>
+            <div class="custom-notification-content-wrapper">
+              <p class="custom-notification-content">
+                Someone from <span id="city">Bengaluru</span><br />searched for
+                jobs in
+                <span id="csp_company">Walmart</span>
+                <small>
+                  <span id="time">1</span> min ago &nbsp;
+                  <i class="fa fa-check-circle"></i>
+                </small>
+              </p>
+            </div>
+          </div>
+          <!-- <div class="custom-close" onclick="disableCSP()"></div> -->
         </div>
       </section>
       <footer>

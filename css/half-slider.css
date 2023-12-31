@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
 :root {
   --arrow-bg: rgba(255, 255, 255, 0.3);
   --arrow-icon: url("../img/arrow-down.png");
@@ -1072,7 +1073,7 @@ caption {
   flex-direction: row;
   background-color: #e5e5e5;
   border: none;
-  cursor: default;
+  /* cursor: default; */
   height: 36px;
   outline: none;
   padding: 0;
@@ -1097,6 +1098,7 @@ caption {
 
 .company-links-container .chip-head {
   display: flex;
+  display: none;
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
@@ -1123,6 +1125,10 @@ caption {
   padding-right: 12px;
 }
 
+.company-links-container .active {
+  text-decoration: underline;
+}
+
 .company-links-container .chip-svg {
   color: #999999;
   cursor: pointer;
@@ -1140,4 +1146,121 @@ caption {
 
 .company-links-container .chip-svg:hover {
   color: #666666;
+}
+
+.custom-social-proof {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999999999999 !important;
+  font-family: "Open Sans", sans-serif;
+}
+
+.custom-notification {
+  width: auto;
+  border: 0;
+  text-align: left;
+  z-index: 99999;
+  box-sizing: border-box;
+  font-weight: 400;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px 2px hsla(0, 4%, 4%, 0.2);
+  background-color: #fff;
+  position: relative;
+  /* cursor: pointer; */
+}
+
+.custom-notification-container {
+  display: flex !important;
+  align-items: center;
+  height: 80px;
+}
+
+.custom-notification-image-wrapper img {
+  max-height: 75px;
+  width: 90px;
+  overflow: hidden;
+  border-radius: 6px 0 0 6px;
+  object-fit: cover;
+}
+
+.custom-notification-content-wrapper {
+  margin: 0;
+  height: 100%;
+  color: gray;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0 6px 6px 0;
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.custom-notification-content {
+  font-family: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.custom-notification-content small {
+  margin-top: 3px !important;
+  display: block !important;
+  font-size: 12px !important;
+  opacity: 0.8;
+}
+
+.custom-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.custom-close::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: gray;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.custom-close::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 2px;
+  background-color: gray;
+  position: absolute;
+  left: 5px;
+  top: 0;
+}
+
+.custom-notification:hover .custom-close {
+  opacity: 1;
+}
+
+.poweredby {
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 3px;
+  color: #3498db;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
 }
