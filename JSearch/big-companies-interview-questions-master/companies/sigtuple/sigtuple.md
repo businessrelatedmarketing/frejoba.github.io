@@ -1,1 +1,0 @@
- - [Sigtuple Interview Experience | Set 1 (On-Campus)](https://www.geeksforgeeks.org/sigtuple-interview-experience-set-1-campus/)

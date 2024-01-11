@@ -1,1 +1,0 @@
- - [IIT Delhi MS(R) CS Interview](https://www.geeksforgeeks.org/iit-delhi-msr-cs-interview/)

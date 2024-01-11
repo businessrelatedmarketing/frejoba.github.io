@@ -1,2 +1,0 @@
- - [Druva Interview Experience (1 Year Experienced)](https://www.geeksforgeeks.org/druva-interview-experience-1-year-experienced/)
-- [Druva Pune Interview Experience](https://www.geeksforgeeks.org/druva-pune-interview-experience/)

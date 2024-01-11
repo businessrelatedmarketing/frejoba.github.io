@@ -1,1 +1,0 @@
- - [Cray Interview Experience](https://www.geeksforgeeks.org/cray-interview-experience/)

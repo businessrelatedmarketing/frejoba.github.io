@@ -1,1 +1,0 @@
- - [Intellect Design Arena Interview Experience (On Campus for Consultant)](https://www.geeksforgeeks.org/intellect-design-arena-interview-experience-campus-consultant/)

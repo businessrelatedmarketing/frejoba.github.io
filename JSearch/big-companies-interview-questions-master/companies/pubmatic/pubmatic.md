@@ -1,3 +1,0 @@
- - [Pubmatic Interview Experience(On Campus)](https://www.geeksforgeeks.org/pubmatic-interview-experienceon-campus/)
-- [Pubmatic Interview Experience](https://www.geeksforgeeks.org/pubmatic-interview-experience/)
-- [Stock Buy Sell to Maximize Profit](https://www.geeksforgeeks.org/stock-buy-sell/)

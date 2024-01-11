@@ -1,3 +1,0 @@
- - [Tracxn Experienced Interview (3yrs SSE post)](https://www.geeksforgeeks.org/tracxn-experienced-interview-3yrs-sse-post/)
-- [Tracxn Interview Experience | Set 2](https://www.geeksforgeeks.org/tracxn-interview-experience-set-2/)
-- [Tracxn Interview Experience](https://www.geeksforgeeks.org/tracxn-interview-experience/)

@@ -1,1 +1,0 @@
- - [Birst India Interview Experience](https://www.geeksforgeeks.org/birst-india-interview-experience/)

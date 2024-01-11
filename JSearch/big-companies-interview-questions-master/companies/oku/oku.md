@@ -1,1 +1,0 @@
- - [Oku Tech (Bro Ex) Interview Experience | Set 1 (On-Campus)](https://www.geeksforgeeks.org/oku-tech-bro-ex-interview-experience-set-1-on-campus/)

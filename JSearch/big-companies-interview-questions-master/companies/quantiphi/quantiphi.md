@@ -1,2 +1,0 @@
- - [Quantiphi Interview Experience (On-Campus)](https://www.geeksforgeeks.org/quantiphi-interview-experience-on-campus/)
-- [Quantiphi Interview Experience | Platform Engineer](https://www.geeksforgeeks.org/quantiphi-interview-experience-platform-engineer/)

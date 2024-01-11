@@ -1,1 +1,0 @@
- - [Magic Bricks Interview Experience](https://www.geeksforgeeks.org/magic-bricks-interview-experience/)

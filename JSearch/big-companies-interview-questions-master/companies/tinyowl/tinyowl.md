@@ -1,2 +1,0 @@
- - [TinyOwl Technologies Interview Experience | Set 1 (On-Campus)](https://www.geeksforgeeks.org/tinyowl-technologies-interview-experience-set-1-on-campus/)
-- [Search in a row wise and column wise sorted matrix](https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/)

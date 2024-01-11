@@ -1,1 +1,0 @@
- - [LeftRightMind(LRM) Pune Interview Experience](https://www.geeksforgeeks.org/leftrightmindlrm-pune-interview-experience/)

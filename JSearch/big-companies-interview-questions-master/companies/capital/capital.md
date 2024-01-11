@@ -1,1 +1,0 @@
- - [Capital One Interview Experience | Set 1 (On-Campus for Analyst Profile)](https://www.geeksforgeeks.org/capital-one-interview-experience-set-1-campus-analyst-profile/)

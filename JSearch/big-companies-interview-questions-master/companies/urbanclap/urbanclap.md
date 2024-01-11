@@ -1,1 +1,0 @@
- - [UrbanClap Interview Experience for SDE-1 (Android)](https://www.geeksforgeeks.org/urbanclap-interview-experience-sde-1-android/)

@@ -1,2 +1,0 @@
- - [eClinicalworks Interview Experience | Set 2](https://www.geeksforgeeks.org/eclinicalworks-interview-experience/)
-- [eClinicalWorks Interview Experience | Set 1 (Off Campus)](https://www.geeksforgeeks.org/eclinicalworks-interview-experience-set-1-off-campus/)

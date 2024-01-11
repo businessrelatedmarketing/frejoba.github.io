@@ -1,1 +1,0 @@
- - [Palantir Technologies Interview | Set 1](https://www.geeksforgeeks.org/palantir-technologies-interview-set-1/)

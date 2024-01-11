@@ -1,1 +1,0 @@
- - [Cloud Lending Interview Experience | Set 1 (For 2.5 Years Experienced)](https://www.geeksforgeeks.org/cloud-lending-interview-experience/)

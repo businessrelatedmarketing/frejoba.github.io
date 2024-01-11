@@ -1,1 +1,0 @@
- - [Magnitude Software Interview Experience (On Campus)](https://www.geeksforgeeks.org/magnitude-software-interview-experience-campus/)

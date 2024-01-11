@@ -1,2 +1,0 @@
- - [Wingify Interview Experience | Set 2 (On-Campus)](https://www.geeksforgeeks.org/wingify-interview-experience-set-2-campus/)
-- [Wingify Interview Experience](https://www.geeksforgeeks.org/wingify-interview-experience/)

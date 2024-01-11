@@ -1,1 +1,0 @@
- - [Dolat Capital Interview experience | Set 1 (On-Campus)](https://www.geeksforgeeks.org/dolat-capital-interview-experience-set-1-on-campus/)

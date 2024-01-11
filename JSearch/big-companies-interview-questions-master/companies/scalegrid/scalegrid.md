@@ -1,1 +1,0 @@
- - [ScaleGrid Interview Experience](https://www.geeksforgeeks.org/scalegrid-interview-experience/)

@@ -1,1 +1,0 @@
- - [Qubole Interview Experience](https://www.geeksforgeeks.org/qubole-interview-experience/)

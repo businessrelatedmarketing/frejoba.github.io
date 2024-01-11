@@ -1,1 +1,0 @@
- - [TransBit Interview | Set 1](https://www.geeksforgeeks.org/transbit-interview-set-1/)

@@ -1,1 +1,0 @@
- - [One Convergence Device Interview Experience | Set 1 (On-Campus)](https://www.geeksforgeeks.org/one-convergence-device-interview-experience-set-1-campus/)

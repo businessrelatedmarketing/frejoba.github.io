@@ -1,1 +1,0 @@
- - [Azuga Telemetics Interview Experience | Set 1](https://www.geeksforgeeks.org/azuga-telemetics-interview-experience-set-1/)

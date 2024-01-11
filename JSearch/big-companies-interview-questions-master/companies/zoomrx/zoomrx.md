@@ -1,1 +1,0 @@
- - [ZoomRx On-Campus Interview Experience](https://www.geeksforgeeks.org/zoomrx-campus-interview-experience/)

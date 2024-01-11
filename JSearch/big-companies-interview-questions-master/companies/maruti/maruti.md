@@ -1,1 +1,0 @@
- - [Maruti Suzuki Interview Experience | Set 1 (IT division)](https://www.geeksforgeeks.org/maruti-suzuki-interview-experience-set-1-division/)

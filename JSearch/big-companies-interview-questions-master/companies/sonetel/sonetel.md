@@ -1,1 +1,0 @@
- - [Sonetel Interview Experience | Set 1 (Telephonic Round)](https://www.geeksforgeeks.org/sonetel-interview-experience-set-1-telephonic-round/)

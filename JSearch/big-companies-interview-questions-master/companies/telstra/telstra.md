@@ -1,2 +1,0 @@
- - [Telstra Communications Interview Experience](https://www.geeksforgeeks.org/telstra-communications-interview-experience/)
-- [Check if a destination is reachable from source with two movements allowed](https://www.geeksforgeeks.org/check-destination-reachable-source-two-movements-allowed/)

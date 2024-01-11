@@ -1,2 +1,0 @@
- - [Thorogood Internship Interview Experience](https://www.geeksforgeeks.org/thorogood-internship-interview-experience/)
-- [Thorogood Interview Experience | Set 1](https://www.geeksforgeeks.org/thorogood-interview-experience-set-1/)

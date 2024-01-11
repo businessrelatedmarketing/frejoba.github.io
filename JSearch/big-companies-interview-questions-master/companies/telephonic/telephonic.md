@@ -1,1 +1,0 @@
- - [Tower Research LLC Interview Experience | Set 1 (Telephonic Round for Internship)](https://www.geeksforgeeks.org/telephonic-interview-for-tower-research-llc-gurgaon-internshiphigh-frequency-trading/)
