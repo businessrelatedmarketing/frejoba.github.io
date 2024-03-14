@@ -8560,7 +8560,7 @@
         </form>
       </section>
       <!-- job-listings, interview-questions, interview-experience, salary-discussions, culture, compare-with-faang -->
-      <div class="company-links-container">
+      <div class="company-links-container hide">
         <a
           class="chip active"
           id="job-listings_chip"
@@ -8568,61 +8568,65 @@
         >
           <img
             class="chip-head"
-            src="https://media.licdn.com/dms/image/C4D0BAQELL3B0KmtQCw/company-logo_100_100/0/1630538686266?e=2147483647&v=beta&t=UCtJdSzi46pjLRUjqgEuszstNXiwfHlSgtPTlHFq_6A"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXPAoBbfkMZDVaUx2yjUH9HJgUyopWSD32g&usqp=CAU"
           />
           <div class="chip-content">Job Listings</div>
         </a>
         <a
-          class="chip"
+          class="chip hide"
           id="interviewQuestions_chip"
           onclick='openVertical("interview-questions")'
         >
           <img
             class="chip-head"
-            src="https://th.bing.com/th?id=ODLS.4174e30d-0a4f-424c-8e92-458e9025c0dc&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+            src="https://media.istockphoto.com/id/827452632/vector/question-mark-outline-isolated-vector.jpg?s=612x612&w=0&k=20&c=vgXteeOUWgWeOJZMRZqXkEGYk9APt1BLj-fmrI8YZKU="
           />
           <div class="chip-content">Interview Questions</div>
         </a>
         <a
-          class="chip"
+          class="chip hide"
           id="interview-experience_chip"
           onclick='openVertical("interview-experience")'
         >
           <img
             class="chip-head"
-            src="https://th.bing.com/th?id=ODLS.f6bdbb06-4317-4733-8b07-2e60af3ad5ca&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+            src="https://banner2.cleanpng.com/20190206/xvz/kisspng-job-interview-computer-icons-clip-art-vector-graph-5c5a8eb8c68884.1130367915494386488132.jpg"
           />
           <div class="chip-content">Interview Experience</div>
         </a>
         <a
-          class="chip"
+          class="chip hide"
           id="salary-discussions_chip"
           onclick='openVertical("salary-discussions")'
         >
           <img
             class="chip-head"
-            src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+            src="https://banner2.cleanpng.com/20210604/kjw/transparent-money-icon-salary-icon-60ba0ea9e410f6.0104912416228061859342.jpg"
           />
           <div class="chip-content">Salary Discussions</div>
         </a>
-        <a class="chip" id="culture_chip" onclick='openVertical("culture")'>
+        <a
+          class="chip hide"
+          id="culture_chip"
+          onclick='openVertical("culture")'
+        >
           <img
             class="chip-head"
-            src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNb7rC4faitDCC0QH4tkyuoWAY8i5l0pnqxFhLOOh6fKG0BTxqc25uwftF0Y2AH6xIQKo&usqp=CAU"
           />
           <div class="chip-content">Culture</div>
         </a>
-        <a
+        <!-- <a
           class="chip"
           id="compare-with-faang_chip"
           onclick='openVertical("compare-with-faang")'
         >
           <img
             class="chip-head"
-            src="https://th.bing.com/th?id=ODLS.c1b94e26-52d8-4d85-8faf-a367583929ce&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAgVBMVEX///8AAADu7u7GxsaDg4N0dHS0tLQ+Pj4PDw/V1dU6OjqPj4+WlpYvLy/i4uL7+/ujo6O6urr09PTc3NxERETp6elJSUmgoKBeXl56enrCwsLQ0NCrq6tkZGSurq5ra2tTU1MaGhomJiaJiYkeHh4VFRVYWFgtLS1OTk5/f38lJSVoOwVPAAAM+klEQVR4nN1d53riMBCkB0I3vSS0hIR7/wc8FHZV10IybvL8ue8cY2staTRbLNdqASKadS7t5blb7369r2+D7aLoBqWLXv+9ruPUno6LbldKiAZdwzxAu1d041LAqB1n3h/m26Ib+CIaB6t9DG+7ohv5ClZP7WP4iIpuZ1Ishk4G3jEtuqnJMNXMOK/7n81db7ebrja67YeiG5sELcWE3726AEZN9e/D8EbqUWr+94Rc+ZpL2cZR3i18EXLjP2PP2s2l02Y5Nu91SC3vW0/cfoXZix+81T9Pe2YjTAxnLvZ5m9sOZ28F3WTespTQ5E2esP9OBgY+dzL1jPj5HwW12BORRjH0un+QZl3DgZTKhLXWXNNxeqAlfiJMbBTTZi/waYUkGmdhfSl+NMNj10La7Ads6xoPxFpY/xW/4hKvWUSbvcDdCc4l8RY+mOgBdCPfi2i0D8bYeOH1WSysS5SKgYCyu8QTaKfE+2DhzxuHsFnqRJy/b/k32gvYExIngj0d+TTUBBLZcClb7tgNLvbSSoAW7pUTUatJh3pwaJNLS5MC+UJWmKSFqGNkr3FpWl06IM8o6ou0EM+UhTnOxDIvGDuqjaSFuMQrnj8cu+XQ0qS4UOOMtPBKnQlj/Jx5O5MDHF81rgQWyqJ6gdr1qJyJw7TE4rROLAzWFV8NI6JXUt6JiASphiMsFn5rFxhSA7pMwNVQPWqxUO8syAG0amUFSDYtGBFvobG2Dx7HyxsfhgZqsQhLH+qhp/3j8Dy3FvsCFgst/GSx8KhdAIb5v5za6w9vC3WVDYqha79N1JuuLu3Dob1p7bejXBPJfXIagYX9WQ+x426y9jBQE8XfYrzdnLWntOznl4G0zkMljBZ9k70FFuqLCMd0XadxyyklAF2jRZNI1YbyJaKO0rKt0TcMk3syl9gAUOGPepS0EOWL+uxhuaG4NLrZ7GMY5mAjPY08LIReInIBTvny38xzO5RbG2NhB05VRykkHY101eLNxcA7BhlYpQDuo4oximnQPTypv4coj6rca7VP3ZDTvH3pD/q3DyNjMM/YL4EbXpSDYOFhIsDnlKpAcQxoxKhW5JxaW8mK8Wj/ofw540AWxJfUqK5txVdtAaaqK4v4WM4T1zeEAeOOcoo+AlIFxuaViWixUNMG0NBf+dhYHoiruBxqTy4byNL5QoZUJny8hV21wZiBmshXlBRM3ybQehIZTSznvQoqIBhvoVaBiSu6zPmiB4fPloKBuHCGFUg4k+TFN87Cd5320BTpkGARB694JGogs6MbDIPKyYcYC1f6b/HpSNNIdIuRHB5HC2PQSqSUXdED1iJKnXj8Ger4bREKy2xcjzdYC3f0Wn+zrnvVS5EwSFk/pmaRDlzKn7h4BDDWKuLBPFNXV92jkVyOpKkYbmJ2hLo2GuoG3l9idvJKG5U4JEZhOMdE9jITNzwj7xn0PBlPhl9J7SazJleRDbwSJLvKFf7kvR4id23FxMJF/KicSDmJyp3QwcmOT/lD9Ek/4CSUpg9vqUKLuzqBN/JaijRKFbysYvn8XADvGKlVv4bNDF91CupaknknCl9g7hgHE9wh+gtnoRow4E/vZ7pojPiD+SJPcimq80S/3mWQnnPXCeL00+PA/VroYKmEhXMTouW8Ik5dTpBP0w80WkNFPqjxoaY6YrhC8sGMa4zqkWInpl8ll6KFmORRl0I0SMww4GAtVQKnuRNBARYStRo1Ua0jjmB3qTp0QB4tl4Uwl7XsFLgaUkB2Ab/QdB0cTd2LSs9CbLgm0OGoLHKApjRPBfzm1BOR6VlIh8SpDoOJuFZbAi9z+Ot/NwuPu2ZC8HkGE0krVKQmHYaK6TMzsjB5Che5EolGm4YXwm6UcWpEJCYu+TLSsxCcdW12zdHuMQeXwRqpwNG0qzrSsxColCYaEi3y1LT9YDp/6AGe2oF/Ve3cq1ugrflv5CB4GfSs98AGW0taONGtUqDSLqycaWdqsAuSdqJwCkgLtQSFBnXNh0iA/aWrBMC7nQYdf3zyKNIW13G11d9WC9UBmVEfClf9NXDRplDhwv4jdc1fZ2RhZG+EIyZ0bbj+1q0OpSVkWjYNdOyNcAJz/qhBBgNkuBipQMuVqCIcyyC1/7o0HTLPHHSlsrLCem8GYuGH8ppPlwmkAyMj7YnrX+iBqgGEE8wEKOSn5DUfWT2TgqnRUW+0B7odtYXSIofrvZlkgw6X5Sq6wFkYeEdjf3gjgamhIf3n5YVzJ44yaR6Z/j2CcDkgs5F/GSe5zJGAkScFBIF81ua5ptuI2eT8X9iEGzsofrPqH5ZIaoUDKSDWfExF5r/Nj7uFOBE5QdIBmQdgeRdiEUZAAW9Ou1uIp/ISNzqu8YCu+JGUMq+QMuFhIQ5T7LObpVuww5FmMZFVwF5UHhZi3gI7cXv7G3r0i21/Zx77kGXDLswu+RQLvLWT0sDck1gwot3qShc8XTcdaZl8N36ZF6IfuLWT0uCZQl9dggtn3jwT7bhkPbr9AvWB57LNnaw8uzDaXuTaOsdYO8/j+xVxYW4vt5c2FtPNqa7AefTwTKtPLT4PFOSyF8xsfyCy0s63Hvv/RNRJpB6h0THurWLeHPCYHiJ86OrncQOzHaPj5mBOGsfgFoVu/+EmYk9tJwjH7bph/z9kUE3b2LZsVedtx5yl5RJeSHmsLjrtk+Vup/anc062hBbO9h+2cOZ5M/USiSWzcDe42u7yftl659NLZGFvZbVuOWgmqhYoh4VRs7+0Xf26Sl52VbyFd8q0vUZRP+xfi1TiZVoJccGXHhPdfWSnzHP783XBBNdK/pgS555mk4/YTYGZdbdpOqW5cL3kwzyJheMnlDm/NNMrPM7dwjupWN+PWw526cbP07LQKRa1mN6spPIx6aWfHQCXJHkani6VMjH6tO5V/S8NUiGBCe2k4x7ji1ad35usbaTy00qJVEjwooRpIwFG3ImKG13RbvBL2/XAst/M+D3/hu327iCSHH8xFSuprFcZTDsT9p3cXWGsp4upsWGBjK/DPreNcMeWdjhDrY2e7Q/2ao5M31s0MbM3xgUi5h0fU1GR7/ZN1hovF8AkvK/l8TEVDTlnVCN7DdQzsOzoYmp3EK7aW2LZ5P0tmN3+JbOuu+7UGp22bbX7/pjMzJeMCtiDKyIXvAhS990x8bdoPO51qECteACbDsRUYN3tzuBh5Ms1NtB7bjE8I5W3i7xhAUiDDxRR5dmVkrbw7v5Yow53paLFVLijDGmj8uyAi2uJCKA3nisV4jrwx2lmpe/JgQ3/Uy1398emVLqHOAdhwa9C7lRZKPhKcr1YYyrDmy1Qi4N9zDVUeTY0bMaZJOF8mz4JZUrlc1CgUh4yrVkphcVUtg4SDPQ9Uz9AwBm8lZkUFv/qOHBNqcJjYrEOUDfpv9CXHLQ0P+xnHsoLfsRycFj7m1l7E6ChbaE0VEpOXCCoNGbb38LxyYXnu9O00yGoVDikZfuC2G7VvrYnSUOZEK96vMPnGp0LClyVMpROmaYBJX1TOmWaBmDqPSqYyqdMX4dMpWUl09cgU2mthMr0dUA1OFahQeVkebfa9oekShnKp0xfhqRKGYBMy6RMX4VCpVUkU5VKq0imxo65JVWmyaGoUgawsERu/otQVClD5ZTpm6xKGYBMy/7BKXd0VSrlZJr6hihFAQM9Ik+MZFrij8B4AVWpCDiW/yMwfoBYqbwf3LlaynSjqlKGdbXI1KDSypGppkoZqqVMdVXKUC1lSn7HoVLKFKhU/XTBqUrK1FClDJVSpnOTSjmZlvd7Ux7AyJr6tmeVyNRUpQxVUqamKmWokjIFKtW/f/ZVHTIlVClDhZRpzFtDFUpAkVRaJTKlVClDdZRp3Ef6yprN9wdQqbn1/7kqZNqmVClDZchUSzsJVCYBFUOl5SyNSgJalTJURZnSqpShKsoUqJT63ul3NciUdPAfqIibb3mXvSLKNJZKq6JM41QpQzWUqVoMpaIapVH0V+4BP1UgU60YSkUlSqNiVSlDCYv2/QFTjd4mqwrK1Eal1VCmNioVyjRkN98ohlJRutdJ/WFRpQygTH0/wlkmPNlhqQLK1KJKGcJXpnYqrYIytVNpFdx8qyplCL5o36pKGYJXpnObKmUIPmb6hErDV6bPqDR8Mo1LO0kIXJk+UaUM9bCV6RNVyhB4zJSoK9URdp0pXQylIuyi/edUGrqbH592EghbmRIl+iaCLtp/qkoZgs7mO1Bp4HWmDlQatpvvQqVhK9P4jd4UBKxMgUq/npwWcDY/thhKRcDKlCzRNxEumbqoUoZwyTS+GEpFuMrURZUyhKtMY0r0TQRbtB9Tom8iWGXq/GGPYN18RyoNl0zdVClDqMoUqXTXewaMqoamTPknF5wRGpn6f48gNDJ13n6eI7QElLeBoZFpku+ChKVMXbZX1hGWMl09N8hARvuZ/geLnJ7ym09yIQAAAABJRU5ErkJggg=="
           />
           <div class="chip-content">Compare With FAANG</div>
-        </a>
+        </a> -->
       </div>
       <section class="job-listings" id="answer-vertical">
         <h2>Latest Job Listings</h2>
@@ -8642,10 +8646,41 @@
       <section class="interview-questions hide" id="answer-vertical">
         <h2>Interview Questions</h2>
         <div class="container" id="joblisting-container">
-          <div id="search" class="search-skill search--hidden"></div>
-          <h5 id="jobListDisclaimer"></h5>
           <div class="jobs" id="jobs">
-            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            <div class="interviewQuestionsTabContainer">
+              <div class="tab-slider--nav">
+                <ul class="tab-slider--tabs">
+                  <li class="tab-slider--trigger active" rel="interview-questions-tab1">Questions</li>
+                  <li class="tab-slider--trigger" rel="interview-questions-tab2">Discussions</li>
+                </ul>
+              </div>
+              <div class="tab-slider--container">
+                <div id="interview-questions-tab1" class="tab-slider--body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th id="difficulty" data-order="desc">
+                          Difficulty &#9650;
+                        </th>
+                        <th id="title" data-order="desc">Title &#9650;</th>
+                        <th id="solution" data-order="desc">
+                          Solution &#9650;
+                        </th>
+                        <th id="video" data-order="desc">Video &#9650;</th>
+                        <th>Tags</th>
+                      </tr>
+                    </thead>
+                    <tbody id="liq_tableBody">
+                      <!-- Rows Populated Dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+                <div id="interview-questions-tab2" class="tab-slider--body">
+                  <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -8655,7 +8690,9 @@
           <div id="search" class="search-skill search--hidden"></div>
           <h5 id="jobListDisclaimer"></h5>
           <div class="jobs" id="jobs">
-            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            <div class="interview-experience-links">
+              <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            </div>
           </div>
         </div>
       </section>
@@ -8665,7 +8702,9 @@
           <div id="search" class="search-skill search--hidden"></div>
           <h5 id="jobListDisclaimer"></h5>
           <div class="jobs" id="jobs">
-            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            <div class="salary-discussion-links">
+              <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            </div>
           </div>
         </div>
       </section>
@@ -8675,11 +8714,13 @@
           <div id="search" class="search-skill search--hidden"></div>
           <h5 id="jobListDisclaimer"></h5>
           <div class="jobs" id="jobs">
-            <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            <div class="culture-links">
+              <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
+            </div>
           </div>
         </div>
       </section>
-      <section class="compare-with-faang hide" id="answer-vertical">
+      <!-- <section class="compare-with-faang hide" id="answer-vertical">
         <h2>Compare Levels with FAANG Companies</h2>
         <div class="container" id="joblisting-container">
           <div id="search" class="search-skill search--hidden"></div>
@@ -8688,8 +8729,8 @@
             <div class="svgLoader"><img src="./img/svgs/loader.svg" /></div>
           </div>
         </div>
-      </section>
-      <section class="custom-social-proof">
+      </section> -->
+      <!-- <section class="custom-social-proof">
         <div class="custom-notification">
           <div class="custom-notification-container">
             <div class="custom-notification-image-wrapper">
@@ -8711,9 +8752,9 @@
               </p>
             </div>
           </div>
-          <!-- <div class="custom-close" onclick="disableCSP()"></div> -->
+          <div class="custom-close" onclick="disableCSP()"></div>
         </div>
-      </section>
+      </section> -->
       <footer>
         <div class="row">
           <div class="col-lg-12">

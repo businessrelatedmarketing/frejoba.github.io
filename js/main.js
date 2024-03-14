@@ -1,4 +1,5 @@
-const api_server_domain = "https://mailserver.crezalo.com/cmcs/";
+// const api_server_domain = "https://mailserver.crezalo.com/cmcs/";
+const api_server_domain = "http://localhost:1234/";
 
 const TAG_ACTIVE_CLASS = "tag--active";
 const SEARCH_HIDDEN_CLASS = "search--hidden";
@@ -29,6 +30,7 @@ if (url.includes("company")) {
 
 console.log(url);
 
+//////////////////////////// Mobile UX Update ////////////////////////////
 function updateMobileUX() {
   if (isMobileDevice === true) {
     let slider_container = document.querySelector(".slider-container");
@@ -71,8 +73,16 @@ function updateMobileUX() {
   }
 }
 
+/////////////////////////////// Global Variables /////////////////////////////////////////////////
 let jobsListings = [];
+let liq = [];
+let iq = [];
+let sd = [];
+let ie = [];
+let c = [];
 
+/////////////////////////////////////// APIs ///////////////////////////////////////////
+///////////////////// Linkedin Job Lists/////////////////////
 async function lk_jobs_list(
   searchInputData = {
     keyword: "software engineer",
@@ -135,10 +145,50 @@ async function lk_jobs_list(
   }
 }
 
-async function lk_job_description(jobUrl) {
+///////////////////// Linkedin Job Descriptions/////////////////////
+// async function lk_job_description(jobUrl) {
+//   // Define the request body
+//   let requestBody = {
+//     jobUrl: jobUrl.split("?")[0],
+//   };
+
+//   const headers = {
+//     "Content-Type": "application/json",
+//     "Access-Control-Allow-Origin": "*",
+//     "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+//   };
+
+//   try {
+//     const response = await fetch(
+//       api_server_domain + "linkedin-job-description",
+//       {
+//         method: "POST",
+//         headers: headers,
+//         body: JSON.stringify(requestBody),
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+
+//     const result = await response.json();
+//     jobsDescription = result["result"];
+//     return jobsDescription;
+//   } catch (error) {
+//     console.error("Error during fetch:", error);
+//     // Handle errors, e.g., display an error message to the user
+//   }
+// }
+
+///////////////////// DB Jobs /////////////////////
+async function jobs(keyword, company, location) {
   // Define the request body
   let requestBody = {
-    jobUrl: jobUrl.split("?")[0],
+    keyword: keyword,
+    company: company,
+    location: location,
+    // limit: "50"
   };
 
   const headers = {
@@ -148,32 +198,30 @@ async function lk_job_description(jobUrl) {
   };
 
   try {
-    const response = await fetch(
-      api_server_domain + "linkedin-job-description",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(requestBody),
-      }
-    );
+    const response = await fetch(api_server_domain + "links/liq", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
     const result = await response.json();
-    jobsDescription = result["result"];
-    return jobsDescription;
+    liq = result["result"];
+    return liq;
   } catch (error) {
     console.error("Error during fetch:", error);
     // Handle errors, e.g., display an error message to the user
   }
 }
 
-async function lk_job_companyUrl(jobUrl) {
+///////////////////// LIQ /////////////////////
+async function leetcode_interview_questions(companyName) {
   // Define the request body
   let requestBody = {
-    jobUrl: jobUrl.split("?")[0],
+    companyName: companyName,
   };
 
   const headers = {
@@ -183,26 +231,158 @@ async function lk_job_companyUrl(jobUrl) {
   };
 
   try {
-    const response = await fetch(
-      api_server_domain + "linkedin-job-companylogo",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(requestBody),
-      }
-    );
+    const response = await fetch(api_server_domain + "links/liq", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
     const result = await response.json();
-    logo = result["result"];
-    return logo;
+    liq = result["result"];
+    return liq;
   } catch (error) {
     console.error("Error during fetch:", error);
     // Handle errors, e.g., display an error message to the user
   }
 }
+
+///////////////////// IQ /////////////////////
+async function interview_questions(companyName) {
+  // Define the request body
+  let requestBody = {
+    companyName: companyName,
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(api_server_domain + "links/iq", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    iq = result["result"];
+    return iq;
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
+///////////////////// SD /////////////////////
+async function salary_discussion(companyName) {
+  // Define the request body
+  let requestBody = {
+    companyName: companyName,
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(api_server_domain + "links/sd", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    sd = result["result"];
+    return sd;
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
+///////////////////// IE /////////////////////
+async function interview_experience(companyName) {
+  // Define the request body
+  let requestBody = {
+    companyName: companyName,
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(api_server_domain + "links/ie", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    ie = result["result"];
+    return ie;
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
+///////////////////// C /////////////////////
+async function culture(companyName) {
+  // Define the request body
+  let requestBody = {
+    companyName: companyName,
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+  };
+
+  try {
+    const response = await fetch(api_server_domain + "links/c", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const result = await response.json();
+    c = result["result"];
+    return c;
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    // Handle errors, e.g., display an error message to the user
+  }
+}
+
+///////////////////////////////// Utility Function /////////////////////////////////////
 
 function getTagHTML(tag, tagClasses) {
   return `<span class="${tagClasses}">
@@ -210,103 +390,11 @@ function getTagHTML(tag, tagClasses) {
             </span>`;
 }
 
-function getJobListingHTML(jobData, filterTags = []) {
-  const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
-  let jobListingHTML = `
-      <div class="jobs__item">
-        <a href="#modal-opened-${jobData.id}" id="modal-closed-${
-    jobData.id
-  }" onclick="updateJobDescription(${jobData.id})">
-          <div class="jobs__column jobs__column--left">
-            <img src="${jobData.companyLogo}" alt="${
-    jobData.company
-  }" class="jobs__img" />
-            <div class="jobs__info">
-                <span class="jobs__company">${jobData.company}</span>
-                <span class="jobs__title">${jobData.position}</span>
-                <ul class="jobs__details">
-                  ${
-                    jobData.agoTime
-                      ? `<li class="jobs__details-item">${jobData.agoTime}</li>`
-                      : ""
-                  }
-                  ${
-                    jobData.salary
-                      ? `<li class="jobs__details-item">${jobData.salary}</li>`
-                      : ""
-                  }
-                  ${
-                    jobData.location
-                      ? `<li class="jobs__details-item">${jobData.location}</li>`
-                      : ""
-                  }
-                </ul>
-            </div>
-          </div>
-        </a>
-        <div class="jobs__column jobs__column--right">
-            ${JOB_TAGS_PLACEHOLDER}
-        </div>
-      </div>
-      </a>
-      <div class="modal-container" id="modal-opened-${jobData.id}">
-        <div class="modal_c">
-          <div class="job-description"></div>
-          <div class="loader"><div class="lds-dual-ring" id="lds-dual-ring-${
-            jobData.id
-          }"></div></div>
-          <button class="modal__btn" type="button"><a href="${
-            jobData.jobUrl
-          }" target="_blank">Apply &rarr;</a></button>
-          <a href="#modal-closed-${
-            jobData.id
-          }" class="link-2" aria-label="Job Description"></a>
-        </div>
-      </div>
-    `;
-
-  const tagsList = [...(jobData.languages || []), ...(jobData.tools || [])];
-  const tagsListLowercase = tagsList.map((t) => t && t.toLowerCase());
-  const passesFilter =
-    !filterTags.length ||
-    filterTags.every((tag) =>
-      tagsListLowercase.includes(tag && tag.toLowerCase())
-    );
-
-  if (!passesFilter) {
-    return "";
-  }
-
-  const tagsString = tagsList.reduce((acc, currentTag) => {
-    const activeClass =
-      (filterTags.includes(currentTag) && TAG_ACTIVE_CLASS) || "";
-
-    return acc + getTagHTML(currentTag, `${TAG_CLASS} ${activeClass}`);
-  }, "");
-
-  return jobListingHTML.replace(JOB_TAGS_PLACEHOLDER, tagsString);
-}
-
-async function updateJobDescription(jobId) {
-  try {
-    jobsListings[jobId]["Description"] = await lk_job_description(
-      jobsListings[jobId]["jobUrl"]
-    );
-    document.querySelector(
-      `#modal-opened-${jobsListings[jobId].id} .job-description`
-    ).innerHTML = jobsListings[jobId]["Description"];
-    document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
-      "hidden";
-  } catch (error) {
-    console.error(error);
-    jobsListings[jobId]["Description"] = "";
-
-    document.querySelector(
-      `#modal-opened-${jobsListings[jobId].id} .job-description`
-    ).textContent = "Refer Apply Page for Job Description";
-    document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
-      "hidden";
-  }
+function getHostnameFromRegex(url) {
+  // run against regex
+  const matches = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+  // extract hostname (will be null if no match is found)
+  return matches && matches[1];
 }
 
 function getSearchInputData() {
@@ -359,38 +447,6 @@ function getSearchBarTags(tagValue, searchContentEl) {
   return searchBarTags;
 }
 
-async function setJobsListings(searchInputData, filterTags) {
-  document.getElementById("jobs").innerHTML = loaderDiv;
-  document.getElementById("jobListDisclaimer").textContent = "";
-  await lk_jobs_list(searchInputData);
-  if (jobsListings.length == 0) {
-    await lk_jobs_list(searchInputData);
-    if (jobsListings.length == 0) {
-      await lk_jobs_list(searchInputData);
-    }
-  }
-  let jobsListingsHTML;
-  if (jobsListings.length == 0) {
-    jobsListingsHTML = document.createElement("img");
-    jobsListingsHTML.src = "./img/NoResultFound.png";
-    jobsListingsHTML.alt = "na";
-    jobsListingsHTML.height = isMobileDevice ? "300" : "500";
-    jobsListingsHTML.width = isMobileDevice ? "300" : "500";
-    document.getElementById("jobs").innerHTML = "<h1>No Jobs Found ☹️</h1>";
-    document.getElementById("jobs").appendChild(jobsListingsHTML);
-    document.getElementById("jobListDisclaimer").textContent =
-      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
-  } else {
-    jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
-      return acc + getJobListingHTML(currentListing, filterTags);
-    }, "");
-
-    document.getElementById("jobs").innerHTML = jobsListingsHTML;
-    document.getElementById("jobListDisclaimer").textContent =
-      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
-  }
-}
-
 function displaySearchWrapper(display = false) {
   const searchWrapper = document.getElementById("search");
 
@@ -407,23 +463,6 @@ function setSearchbarContent(searchContentEl, tags) {
   searchContentEl.innerHTML = tags.reduce((acc, currentTag) => {
     return acc + getTagHTML(currentTag, CLOSE_TAG_CLASS);
   }, "");
-}
-
-function getJobsData() {
-  var searchInputData = getSearchInputData();
-  setJobsListings(searchInputData, []);
-  gaTrackJSearchEvent(searchInputData);
-}
-
-function jobList(company) {
-  closeNav();
-  document.getElementsByClassName("company")[0].value = company;
-  var searchInputData = getSearchInputData();
-  searchInputData.company = company;
-  searchInputData.dateSincePosted = "past month";
-  searchInputData.limit = "100";
-  setJobsListings(searchInputData, []);
-  gaTrackCompanyClickEvent(company);
 }
 
 function resetState(searchContentEl) {
@@ -458,6 +497,477 @@ window.addEventListener("click", (event) => {
   setJobsListings(searchBarTags);
 });
 
+function getSolutionLink(solution) {
+  if (solution === null) {
+    return null;
+  }
+
+  const match = solution.match(/\[Solution\]\((.*?)\)/);
+  if (match && match.length > 1) {
+    return `<a href="${match[1]}">Solution</a>`;
+  } else {
+    return "";
+  }
+}
+
+//////////////////////////// Job Listings ////////////////////////////
+
+function getJobListingHTML(jobData, filterTags = []) {
+  const JOB_TAGS_PLACEHOLDER = "###JOB_TAGS###";
+  let domain = getHostnameFromRegex(jobData?.jobUrl);
+  let jobListingHTML = `
+      <div class="jobs__item">
+        <a href="${jobData.jobUrl}" target="_blank">
+          <div class="jobs__column jobs__column--left">
+            <img src="${jobData.companyLogo}" alt="${
+    jobData.company
+  }" class="jobs__img" />
+            <div class="jobs__info">
+                <span class="jobs__company">${jobData.company}</span>
+                <span class="jobs__title">${jobData.position}</span>
+                <ul class="jobs__details">
+                  ${
+                    jobData.agoTime
+                      ? `<li class="jobs__details-item">${jobData.agoTime}</li>`
+                      : ""
+                  }
+                  ${
+                    jobData.salary
+                      ? `<li class="jobs__details-item">${jobData.salary}</li>`
+                      : ""
+                  }
+                  ${
+                    jobData.location
+                      ? `<li class="jobs__details-item">${jobData.location}</li>`
+                      : ""
+                  }
+                </ul>
+                <br/>
+                <span class="jobs__details">${domain}</span>
+            </div>
+          </div>
+        </a>
+        <div class="jobs__column jobs__column--right">
+            ${JOB_TAGS_PLACEHOLDER}
+        </div>
+      </div>
+      </a>
+      <div class="modal-container" id="modal-opened-${jobData.id}">
+        <div class="modal_c">
+          <div class="job-description"></div>
+          <div class="loader"><div class="lds-dual-ring" id="lds-dual-ring-${
+            jobData.id
+          }"></div></div>
+          <button class="modal__btn" type="button"><a href="${
+            jobData.jobUrl
+          }" target="_blank">Apply &rarr;</a></button>
+          <a href="#modal-closed-${
+            jobData.id
+          }" class="link-2" aria-label="Job Description"></a>
+        </div>
+      </div>
+    `;
+
+  const tagsList = [...(jobData.languages || []), ...(jobData.tools || [])];
+  const tagsListLowercase = tagsList.map((t) => t && t.toLowerCase());
+  const passesFilter =
+    !filterTags.length ||
+    filterTags.every((tag) =>
+      tagsListLowercase.includes(tag && tag.toLowerCase())
+    );
+
+  if (!passesFilter) {
+    return "";
+  }
+
+  const tagsString = tagsList.reduce((acc, currentTag) => {
+    const activeClass =
+      (filterTags.includes(currentTag) && TAG_ACTIVE_CLASS) || "";
+
+    return acc + getTagHTML(currentTag, `${TAG_CLASS} ${activeClass}`);
+  }, "");
+
+  return jobListingHTML.replace(JOB_TAGS_PLACEHOLDER, tagsString);
+}
+
+// async function updateJobDescription(jobId) {
+//   try {
+//     jobsListings[jobId]["Description"] = await lk_job_description(
+//       jobsListings[jobId]["jobUrl"]
+//     );
+//     document.querySelector(
+//       `#modal-opened-${jobsListings[jobId].id} .job-description`
+//     ).innerHTML = jobsListings[jobId]["Description"];
+//     document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
+//       "hidden";
+//   } catch (error) {
+//     console.error(error);
+//     jobsListings[jobId]["Description"] = "";
+
+//     document.querySelector(
+//       `#modal-opened-${jobsListings[jobId].id} .job-description`
+//     ).textContent = "Refer Apply Page for Job Description";
+//     document.querySelector("#lds-dual-ring-" + jobId).style.visibility =
+//       "hidden";
+//   }
+// }
+
+async function setJobsListings(searchInputData, filterTags) {
+  document.getElementById("jobs").innerHTML = loaderDiv;
+  document.getElementById("jobListDisclaimer").textContent = "";
+  await lk_jobs_list(searchInputData);
+  if (jobsListings.length == 0) {
+    await lk_jobs_list(searchInputData);
+    if (jobsListings.length == 0) {
+      await lk_jobs_list(searchInputData);
+    }
+  }
+  let jobsListingsHTML;
+  if (jobsListings.length == 0) {
+    jobsListingsHTML = document.createElement("img");
+    jobsListingsHTML.src = "./img/NoResultFound.png";
+    jobsListingsHTML.alt = "na";
+    jobsListingsHTML.height = isMobileDevice ? "300" : "500";
+    jobsListingsHTML.width = isMobileDevice ? "300" : "500";
+    document.getElementById("jobs").innerHTML = "<h1>No Jobs Found ☹️</h1>";
+    document.getElementById("jobs").appendChild(jobsListingsHTML);
+    document.getElementById("jobListDisclaimer").textContent =
+      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
+  } else {
+    jobsListingsHTML = jobsListings.reduce((acc, currentListing) => {
+      return acc + getJobListingHTML(currentListing, filterTags);
+    }, "");
+
+    document.getElementById("jobs").innerHTML = jobsListingsHTML;
+    document.getElementById("jobListDisclaimer").textContent =
+      "*Not satisfied? Customize your search with keywords, location, company, and more for better results!";
+  }
+}
+
+///////////////////////////////////// 2 Equivalent Parent Level Functions that trigger Job Search ///////////////////////////////////////////////
+function getJobsData() {
+  var searchInputData = getSearchInputData();
+  setJobsListings(searchInputData, []);
+
+  let companyName = searchInputData?.company.toLowerCase();
+  companyVerticalHeader = document.querySelector(".company-links-container");
+  if (companyName) {
+    populate_liq_table();
+    displayInterviewExperiences(companyName);
+    displaySalaryDiscussion(companyName);
+    displayCulture(companyName);
+
+    companyVerticalHeader.classList.remove("hide");
+  } else {
+    companyVerticalHeader.classList.add("hide");
+  }
+
+  openVertical("job-listings");
+
+  gaTrackJSearchEvent(searchInputData);
+}
+
+function jobList(company) {
+  closeNav();
+  document.getElementsByClassName("company")[0].value = company;
+  var searchInputData = getSearchInputData();
+  searchInputData.company = company;
+  searchInputData.dateSincePosted = "past month";
+  searchInputData.limit = "100";
+  setJobsListings(searchInputData, []);
+
+  // populate data for each vertical
+  populate_liq_table();
+  displayInterviewExperiences(company.toLowerCase());
+  displaySalaryDiscussion(company.toLowerCase());
+  displayCulture(company.toLowerCase());
+
+  // make visible vertical header
+  companyVerticalHeader = document.querySelector(".company-links-container");
+  companyVerticalHeader.classList.remove("hide");
+
+  openVertical("job-listings");
+
+  // Google Analytics
+  gaTrackCompanyClickEvent(company);
+}
+
+//////////////////////////// LeetCode Interview Questions Vertical Data Populate //////////////////////////////////////////////
+
+async function populate_liq_table() {
+  // prepare Tabs
+  $("document").ready(function () {
+    $(".tab-slider--body").hide();
+    $(".tab-slider--body:first").show();
+  });
+
+  $(".tab-slider--nav li").click(function () {
+    $(".tab-slider--body").hide();
+    var activeTab = $(this).attr("rel");
+    $("#" + activeTab).fadeIn();
+    if ($(this).attr("rel") == "interview-questions-tab2") {
+      $(".tab-slider--tabs").addClass("slide");
+    } else {
+      $(".tab-slider--tabs").removeClass("slide");
+    }
+    $(".tab-slider--nav li").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  const companyName = getSearchInputData()?.company.toLowerCase();
+  const data = await leetcode_interview_questions(companyName);
+  const data_links = await interview_questions(companyName);
+  if (data.length > 0 || data_links.length > 0) {
+    document.querySelector("#interviewQuestions_chip").classList.remove("hide");
+    populateTable(data);
+    populateIQLinks(data_links);
+  } else {
+    document.querySelector("#interviewQuestions_chip").classList.add("hide");
+  }
+}
+
+function populateTable(data) {
+  const tableBody = $("#liq_tableBody");
+
+  // Remove existing rows
+  tableBody.empty();
+
+  data.forEach((item) => {
+    const row = $("<tr>");
+    row.append($("<td>").text(item.difficulty));
+    row.append(
+      $("<td>").html(
+        `<a href="${item.discussionlinks}" target="_blank">${item.title}</a>`
+      )
+    );
+    row.append($("<td>").html(getSolutionLink(item.solutions)));
+    row.append($("<td>").text(item.video));
+    row.append($("<td>").text(item.tag));
+    tableBody.append(row);
+  });
+}
+
+function populateIQLinks(data_links) {
+  const container = document.querySelector("#interview-questions-tab2");
+
+  // Clear existing content
+  container.innerHTML = "";
+
+  // Create HTML elements for each experience
+  data_links.forEach((experience) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    const title = document.createElement("h5");
+    title.classList.add("card-title");
+    title.textContent = experience.title;
+
+    const link = document.createElement("a");
+    link.href = experience.discussion_link;
+    link.target = "_blank";
+    link.textContent = "Discussion Link";
+
+    const views = document.createElement("p");
+    views.textContent = `Views: ${experience.views}`;
+
+    const upvotes = document.createElement("p");
+    upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+
+    const tags = document.createElement("p");
+    tags.textContent = `Tags: ${experience.tags}`;
+
+    cardBody.appendChild(title);
+    cardBody.appendChild(link);
+    cardBody.appendChild(views);
+    cardBody.appendChild(upvotes);
+    cardBody.appendChild(tags);
+
+    card.appendChild(cardBody);
+
+    container.appendChild(card);
+  });
+}
+
+/////////////////////////////// Interview Experience Data Display ////////////////////////////////////////////
+async function displayInterviewExperiences(companyName) {
+  const experiences = await interview_experience(companyName);
+  if (experiences.length > 0) {
+    document
+      .querySelector("#interview-experience_chip")
+      .classList.remove("hide");
+    const container = document.querySelector(".interview-experience-links");
+
+    // Clear existing content
+    container.innerHTML = "";
+
+    // Create HTML elements for each experience
+    experiences.forEach((experience) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      const title = document.createElement("h5");
+      title.classList.add("card-title");
+      title.textContent = experience.title;
+
+      const link = document.createElement("a");
+      link.href = experience.discussion_link;
+      link.target = "_blank";
+      link.textContent = "Discussion Link";
+
+      const views = document.createElement("p");
+      views.textContent = `Views: ${experience.views}`;
+
+      const upvotes = document.createElement("p");
+      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+
+      const tags = document.createElement("p");
+      tags.textContent = `Tags: ${experience.tags}`;
+
+      cardBody.appendChild(title);
+      cardBody.appendChild(link);
+      cardBody.appendChild(views);
+      cardBody.appendChild(upvotes);
+      cardBody.appendChild(tags);
+
+      card.appendChild(cardBody);
+
+      container.appendChild(card);
+    });
+  } else {
+    document.querySelector("#interview-experience_chip").classList.add("hide");
+  }
+}
+
+/////////////////////////////// Salary Discussion Data Display ////////////////////////////////////////////
+async function displaySalaryDiscussion(companyName) {
+  const experiences = await salary_discussion(companyName);
+  if (experiences.length > 0) {
+    document.querySelector("#salary-discussions_chip").classList.remove("hide");
+    const container = document.querySelector(".salary-discussion-links");
+
+    // Clear existing content
+    container.innerHTML = "";
+
+    // Create HTML elements for each experience
+    experiences.forEach((experience) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      const title = document.createElement("h5");
+      title.classList.add("card-title");
+      title.textContent = experience.title;
+
+      const link = document.createElement("a");
+      link.href = experience.discussion_link;
+      link.target = "_blank";
+      link.textContent = "Discussion Link";
+
+      const views = document.createElement("p");
+      views.textContent = `Views: ${experience.views}`;
+
+      const upvotes = document.createElement("p");
+      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+
+      const tags = document.createElement("p");
+      tags.textContent = `Tags: ${experience.tags}`;
+
+      cardBody.appendChild(title);
+      cardBody.appendChild(link);
+      cardBody.appendChild(views);
+      cardBody.appendChild(upvotes);
+      cardBody.appendChild(tags);
+
+      card.appendChild(cardBody);
+
+      container.appendChild(card);
+    });
+  } else {
+    document.querySelector("#salary-discussions_chip").classList.add("hide");
+  }
+}
+
+/////////////////////////////// Salary Discussion Data Display ////////////////////////////////////////////
+async function displayCulture(companyName) {
+  const experiences = await culture(companyName);
+  if (experiences.length > 0) {
+    document.querySelector("#culture_chip").classList.remove("hide");
+    const container = document.querySelector(".culture-links");
+
+    // Clear existing content
+    container.innerHTML = "";
+
+    // Create HTML elements for each experience
+    experiences.forEach((experience) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      const title = document.createElement("h5");
+      title.classList.add("card-title");
+      title.textContent = experience.title;
+
+      const link = document.createElement("a");
+      link.href = experience.discussion_link;
+      link.target = "_blank";
+      link.textContent = "Discussion Link";
+
+      const views = document.createElement("p");
+      views.textContent = `Views: ${experience.views}`;
+
+      const upvotes = document.createElement("p");
+      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+
+      const tags = document.createElement("p");
+      tags.textContent = `Tags: ${experience.tags}`;
+
+      cardBody.appendChild(title);
+      cardBody.appendChild(link);
+      cardBody.appendChild(views);
+      cardBody.appendChild(upvotes);
+      cardBody.appendChild(tags);
+
+      card.appendChild(cardBody);
+
+      container.appendChild(card);
+    });
+  } else {
+    document.querySelector("#culture_chip").classList.add("hide");
+  }
+}
+
+//////////////////////////// Toggle Verticals ////////////////////////////
+function openVertical(name) {
+  // name : <!-- job-listings, interview-questions, interview-experience, salary-discussions, culture, compare-with-faang -->
+  var ansChips = document.querySelectorAll(".chip");
+  var ansVerticals = document.querySelectorAll("#answer-vertical");
+
+  for (let i = 0; i < ansVerticals.length; i++) {
+    if (ansVerticals[i].className.includes(name)) {
+      ansVerticals[i].classList.remove("hide");
+      ansChips[i].classList.add("active");
+    } else {
+      ansVerticals[i].classList.add("hide");
+      ansChips[i].classList.remove("active");
+    }
+  }
+
+  // GA Track Vertical Click Success
+  gaTrackCompanyDetailChipClick(name);
+}
+
+/////////////////////////////// NavBar Functions /////////////////////////////////////////
+
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0px";
   document.getElementById("backdrop").style.display = "none";
@@ -477,6 +987,8 @@ function openNav() {
     document.getElementById("backdrop").style.display = "block"; //displays overlay
   }
 }
+
+/////////////////////////////// Social Proof Functions /////////////////////////////////////////
 
 function sideNotification() {
   var r_text = new Array();
@@ -526,24 +1038,7 @@ function disableCSP() {
   $(".custom-social-proof").style = "display: none;";
 }
 
-function openVertical(name) {
-  // name : <!-- job-listings, interview-questions, interview-experience, salary-discussions, culture, compare-with-faang -->
-  var ansChips = document.querySelectorAll(".chip");
-  var ansVerticals = document.querySelectorAll("#answer-vertical");
-
-  for (let i = 0; i < ansVerticals.length; i++) {
-    if (ansVerticals[i].className.includes(name)) {
-      ansVerticals[i].classList.remove("hide");
-      ansChips[i].classList.add("active");
-    } else {
-      ansVerticals[i].classList.add("hide");
-      ansChips[i].classList.remove("active");
-    }
-  }
-
-  // GA Track Vertical Click Success
-  gaTrackCompanyDetailChipClick(name);
-}
+/////////////////////////////// Google Analytics Functions /////////////////////////////////////////
 
 // Google Analytics tracking code
 function gaTrackPageview() {
@@ -555,13 +1050,13 @@ function gaTrackJSearchEvent(searchInputData) {
 }
 
 function gaTrackCompanyClickEvent(company) {
-  gtag("event", "Company Slide click", {
+  gtag("event", "Company Slide/SideNav Click", {
     company: company,
   });
 }
 
 function gaTrackCompanyDetailChipClick(chip) {
-  gtag("event", "Company Link click", {
+  gtag("event", "Company Vertical Click", {
     company: document.getElementsByClassName("company")[0].value,
     chip: chip,
   });

@@ -20,6 +20,9 @@
   --company-page-bg-color: white;
   --accent-color: #fff;
   --gradient-color: #fbfbfb;
+  --base-margin: 20px;
+  --tab-height: 35px;
+  --tab-border-radius: 35px;
 }
 
 html,
@@ -1098,7 +1101,7 @@ caption {
 
 .company-links-container .chip-head {
   display: flex;
-  display: none;
+  /* display: none; */
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
@@ -1263,4 +1266,64 @@ caption {
 
 .show {
   visibility: visible;
+}
+
+.tab-slider--nav {
+  width: 100%;
+  float: left;
+  margin-bottom: var(--base-margin);
+}
+.tab-slider--tabs {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  border-radius: var(--tab-border-radius);
+  overflow: hidden;
+  background: #bbd3ee;
+  height: var(--tab-height);
+  user-select: none;
+  &:after {
+    content: "";
+    width: 50%;
+    background: var(--modal-background);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 250ms ease-in-out;
+    border-radius: var(--tab-border-radius);
+  }
+  &.slide:after {
+    left: 50%;
+  }
+}
+
+.tab-slider--trigger {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: bold;
+  color: var(--modal-background);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 11px var(--base-margin);
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 250ms ease-in-out;
+  user-select: none;
+  &.active {
+    color: #fff;
+  }
+}
+.tab-slider--body {
+  margin-bottom: var(--base-margin);
+}
+
+.interviewQuestionsTabContainer {
+  display: flex;
+  flex-direction: column;
 }
