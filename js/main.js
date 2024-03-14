@@ -706,9 +706,9 @@ async function populate_liq_table() {
     var activeTab = $(this).attr("rel");
     $("#" + activeTab).fadeIn();
     if ($(this).attr("rel") == "interview-questions-tab2") {
-      $(".tab-slider--tabs").addClass("slide");
+      $(".tab-slider--tabs").addClass("slide-iq");
     } else {
-      $(".tab-slider--tabs").removeClass("slide");
+      $(".tab-slider--tabs").removeClass("slide-iq");
     }
     $(".tab-slider--nav li").removeClass("active");
     $(this).addClass("active");

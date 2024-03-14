@@ -1270,12 +1270,19 @@ caption {
 
 .tab-slider--nav {
   width: 100%;
-  float: left;
+  /* float: left; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-bottom: var(--base-margin);
 }
 .tab-slider--tabs {
-  display: block;
-  float: left;
+  /* display: block;
+  float: left; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1296,7 +1303,7 @@ caption {
     transition: all 250ms ease-in-out;
     border-radius: var(--tab-border-radius);
   }
-  &.slide:after {
+  &.slide-iq:after {
     left: 50%;
   }
 }
