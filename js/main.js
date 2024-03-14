@@ -657,7 +657,9 @@ function getJobsData() {
     displaySalaryDiscussion(companyName);
     displayCulture(companyName);
 
-    companyVerticalHeader.classList.remove("hide");
+    setTimeout(() => {
+      companyVerticalHeader.classList.remove("hide");
+    }, 500);
   } else {
     companyVerticalHeader.classList.add("hide");
   }
@@ -684,7 +686,10 @@ function jobList(company) {
 
   // make visible vertical header
   companyVerticalHeader = document.querySelector(".company-links-container");
-  companyVerticalHeader.classList.remove("hide");
+
+  setTimeout(() => {
+    companyVerticalHeader.classList.remove("hide");
+  }, 500);
 
   openVertical("job-listings");
 
