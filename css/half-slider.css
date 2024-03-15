@@ -484,6 +484,20 @@ option {
   width: auto;
 }
 
+.view_upvote_div {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.view__upvote {
+  margin-left: 15px;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .jobs__company {
   color: #40a5a4;
   font-size: 14px;

@@ -510,6 +510,13 @@ function getSolutionLink(solution) {
   }
 }
 
+function splitTags(tags) {
+  if (tags === null) {
+    return null;
+  }
+  return tags?.split("|")?.map((item) => item.trim());
+}
+
 //////////////////////////// Job Listings ////////////////////////////
 
 function getJobListingHTML(jobData, filterTags = []) {
@@ -760,39 +767,104 @@ function populateIQLinks(data_links) {
 
   // Create HTML elements for each experience
   data_links.forEach((experience) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
-
-    const title = document.createElement("h5");
-    title.classList.add("card-title");
-    title.textContent = experience.title;
+    const jobsItem = document.createElement("div");
+    jobsItem.classList.add("jobs__item");
+    jobsItem.style.height =
+      experience.title.length > 67
+        ? "18vh"
+        : experience?.tags
+        ? "16vh"
+        : "14vh";
 
     const link = document.createElement("a");
     link.href = experience.discussion_link;
     link.target = "_blank";
-    link.textContent = "Discussion Link";
 
-    const views = document.createElement("p");
-    views.textContent = `Views: ${experience.views}`;
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("jobs__info");
 
-    const upvotes = document.createElement("p");
-    upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+    const titleSpan = document.createElement("span");
+    titleSpan.classList.add("jobs__title");
+    titleSpan.textContent = experience.title;
 
-    const tags = document.createElement("p");
-    tags.textContent = `Tags: ${experience.tags}`;
+    let domain = getHostnameFromRegex(experience?.discussion_link);
 
-    cardBody.appendChild(title);
-    cardBody.appendChild(link);
-    cardBody.appendChild(views);
-    cardBody.appendChild(upvotes);
-    cardBody.appendChild(tags);
+    const domainSpan = document.createElement("span");
+    domainSpan.classList.add("jobs__details");
+    domainSpan.textContent = domain;
 
-    card.appendChild(cardBody);
+    let detailsList = null;
 
-    container.appendChild(card);
+    if (experience?.tags) {
+      detailsList = document.createElement("ul");
+      detailsList.classList.add("jobs__details");
+
+      let tags = splitTags(experience.tags);
+      tags.map((tag) => {
+        const agoTimeItem = document.createElement("li");
+        agoTimeItem.classList.add("jobs__details-item");
+        agoTimeItem.textContent = tag;
+        detailsList.appendChild(agoTimeItem);
+      });
+    }
+
+    const infoDiv1 = document.createElement("div");
+    infoDiv1.classList.add("view__upvote");
+
+    const link1 = document.createElement("a");
+    link1.href = experience.discussion_link;
+    link1.target = "_blank";
+
+    if (experience?.views) {
+      const div = document.createElement("div");
+      div.classList.add("view_upvote_div");
+
+      const imgV = document.createElement("img");
+      imgV.src = "./img/view.png";
+      imgV.height = 30;
+      imgV.width = 30;
+
+      const views = document.createElement("span");
+      views.classList.add("jobs__details-item");
+      views.style.padding = "5px";
+      views.textContent = experience?.views;
+      div.appendChild(imgV);
+      div.appendChild(views);
+      infoDiv1.appendChild(div);
+    }
+
+    if (experience?.upvotes) {
+      const div = document.createElement("div");
+      div.classList.add("view_upvote_div");
+
+      const imgU = document.createElement("img");
+      imgU.src = "./img/upvote.png";
+      imgU.height = 30;
+      imgU.width = 30;
+
+      const upvotes = document.createElement("span");
+      upvotes.classList.add("jobs__details-item");
+      upvotes.style.padding = "5px";
+      upvotes.textContent = experience?.upvotes;
+      div.appendChild(imgU);
+      div.appendChild(upvotes);
+      infoDiv1.appendChild(div);
+    }
+
+    // Assemble elements
+    infoDiv.appendChild(titleSpan);
+    infoDiv.appendChild(domainSpan);
+    if (detailsList) infoDiv.appendChild(detailsList);
+
+    link.appendChild(infoDiv);
+
+    link1.appendChild(infoDiv1);
+
+    jobsItem.appendChild(link);
+    jobsItem.appendChild(link1);
+
+    container.appendChild(jobsItem);
+    container.appendChild(document.createElement("br"));
   });
 }
 
@@ -810,39 +882,103 @@ async function displayInterviewExperiences(companyName) {
 
     // Create HTML elements for each experience
     experiences.forEach((experience) => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      const cardBody = document.createElement("div");
-      cardBody.classList.add("card-body");
-
-      const title = document.createElement("h5");
-      title.classList.add("card-title");
-      title.textContent = experience.title;
+      const jobsItem = document.createElement("div");
+      jobsItem.classList.add("jobs__item");
+      jobsItem.style.height =
+        experience.title.length > 67
+          ? "18vh"
+          : experience?.tags
+          ? "16vh"
+          : "14vh";
 
       const link = document.createElement("a");
       link.href = experience.discussion_link;
       link.target = "_blank";
-      link.textContent = "Discussion Link";
 
-      const views = document.createElement("p");
-      views.textContent = `Views: ${experience.views}`;
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("jobs__info");
 
-      const upvotes = document.createElement("p");
-      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+      const titleSpan = document.createElement("span");
+      titleSpan.classList.add("jobs__title");
+      titleSpan.textContent = experience.title;
 
-      const tags = document.createElement("p");
-      tags.textContent = `Tags: ${experience.tags}`;
+      let domain = getHostnameFromRegex(experience?.discussion_link);
 
-      cardBody.appendChild(title);
-      cardBody.appendChild(link);
-      cardBody.appendChild(views);
-      cardBody.appendChild(upvotes);
-      cardBody.appendChild(tags);
+      const domainSpan = document.createElement("span");
+      domainSpan.classList.add("jobs__details");
+      domainSpan.textContent = domain;
 
-      card.appendChild(cardBody);
+      let detailsList = null;
+      if (experience?.tags) {
+        detailsList = document.createElement("ul");
+        detailsList.classList.add("jobs__details");
 
-      container.appendChild(card);
+        let tags = splitTags(experience.tags);
+        tags.map((tag) => {
+          const agoTimeItem = document.createElement("li");
+          agoTimeItem.classList.add("jobs__details-item");
+          agoTimeItem.textContent = tag;
+          detailsList.appendChild(agoTimeItem);
+        });
+      }
+
+      const infoDiv1 = document.createElement("div");
+      infoDiv1.classList.add("view__upvote");
+
+      const link1 = document.createElement("a");
+      link1.href = experience.discussion_link;
+      link1.target = "_blank";
+
+      if (experience?.views) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgV = document.createElement("img");
+        imgV.src = "./img/view.png";
+        imgV.height = 30;
+        imgV.width = 30;
+
+        const views = document.createElement("span");
+        views.classList.add("jobs__details-item");
+        views.style.padding = "5px";
+        views.textContent = experience?.views;
+        div.appendChild(imgV);
+        div.appendChild(views);
+        infoDiv1.appendChild(div);
+      }
+
+      if (experience?.upvotes) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgU = document.createElement("img");
+        imgU.src = "./img/upvote.png";
+        imgU.height = 30;
+        imgU.width = 30;
+
+        const upvotes = document.createElement("span");
+        upvotes.classList.add("jobs__details-item");
+        upvotes.style.padding = "5px";
+        upvotes.textContent = experience?.upvotes;
+        div.appendChild(imgU);
+        div.appendChild(upvotes);
+        infoDiv1.appendChild(div);
+      }
+
+      // Assemble elements
+      infoDiv.appendChild(titleSpan);
+      infoDiv.appendChild(domainSpan);
+      if (detailsList) infoDiv.appendChild(detailsList);
+
+      link.appendChild(infoDiv);
+
+      link1.appendChild(infoDiv1);
+
+      jobsItem.appendChild(link);
+      jobsItem.appendChild(link1);
+
+      container.appendChild(jobsItem);
+      container.appendChild(document.createElement("br"));
     });
   } else {
     document.querySelector("#interview-experience_chip").classList.add("hide");
@@ -861,39 +997,103 @@ async function displaySalaryDiscussion(companyName) {
 
     // Create HTML elements for each experience
     experiences.forEach((experience) => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      const cardBody = document.createElement("div");
-      cardBody.classList.add("card-body");
-
-      const title = document.createElement("h5");
-      title.classList.add("card-title");
-      title.textContent = experience.title;
+      const jobsItem = document.createElement("div");
+      jobsItem.classList.add("jobs__item");
+      jobsItem.style.height =
+        experience.title.length > 67
+          ? "18vh"
+          : experience?.tags
+          ? "16vh"
+          : "14vh";
 
       const link = document.createElement("a");
       link.href = experience.discussion_link;
       link.target = "_blank";
-      link.textContent = "Discussion Link";
 
-      const views = document.createElement("p");
-      views.textContent = `Views: ${experience.views}`;
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("jobs__info");
 
-      const upvotes = document.createElement("p");
-      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+      const titleSpan = document.createElement("span");
+      titleSpan.classList.add("jobs__title");
+      titleSpan.textContent = experience.title;
 
-      const tags = document.createElement("p");
-      tags.textContent = `Tags: ${experience.tags}`;
+      let domain = getHostnameFromRegex(experience?.discussion_link);
 
-      cardBody.appendChild(title);
-      cardBody.appendChild(link);
-      cardBody.appendChild(views);
-      cardBody.appendChild(upvotes);
-      cardBody.appendChild(tags);
+      const domainSpan = document.createElement("span");
+      domainSpan.classList.add("jobs__details");
+      domainSpan.textContent = domain;
 
-      card.appendChild(cardBody);
+      let detailsList = null;
+      if (experience?.tags) {
+        detailsList = document.createElement("ul");
+        detailsList.classList.add("jobs__details");
 
-      container.appendChild(card);
+        let tags = splitTags(experience.tags);
+        tags.map((tag) => {
+          const agoTimeItem = document.createElement("li");
+          agoTimeItem.classList.add("jobs__details-item");
+          agoTimeItem.textContent = tag;
+          detailsList.appendChild(agoTimeItem);
+        });
+      }
+
+      const infoDiv1 = document.createElement("div");
+      infoDiv1.classList.add("view__upvote");
+
+      const link1 = document.createElement("a");
+      link1.href = experience.discussion_link;
+      link1.target = "_blank";
+
+      if (experience?.views) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgV = document.createElement("img");
+        imgV.src = "./img/view.png";
+        imgV.height = 30;
+        imgV.width = 30;
+
+        const views = document.createElement("span");
+        views.classList.add("jobs__details-item");
+        views.style.padding = "5px";
+        views.textContent = experience?.views;
+        div.appendChild(imgV);
+        div.appendChild(views);
+        infoDiv1.appendChild(div);
+      }
+
+      if (experience?.upvotes) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgU = document.createElement("img");
+        imgU.src = "./img/upvote.png";
+        imgU.height = 30;
+        imgU.width = 30;
+
+        const upvotes = document.createElement("span");
+        upvotes.classList.add("jobs__details-item");
+        upvotes.style.padding = "5px";
+        upvotes.textContent = experience?.upvotes;
+        div.appendChild(imgU);
+        div.appendChild(upvotes);
+        infoDiv1.appendChild(div);
+      }
+
+      // Assemble elements
+      infoDiv.appendChild(titleSpan);
+      infoDiv.appendChild(domainSpan);
+      if (detailsList) infoDiv.appendChild(detailsList);
+
+      link.appendChild(infoDiv);
+
+      link1.appendChild(infoDiv1);
+
+      jobsItem.appendChild(link);
+      jobsItem.appendChild(link1);
+
+      container.appendChild(jobsItem);
+      container.appendChild(document.createElement("br"));
     });
   } else {
     document.querySelector("#salary-discussions_chip").classList.add("hide");
@@ -912,39 +1112,103 @@ async function displayCulture(companyName) {
 
     // Create HTML elements for each experience
     experiences.forEach((experience) => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      const cardBody = document.createElement("div");
-      cardBody.classList.add("card-body");
-
-      const title = document.createElement("h5");
-      title.classList.add("card-title");
-      title.textContent = experience.title;
+      const jobsItem = document.createElement("div");
+      jobsItem.classList.add("jobs__item");
+      jobsItem.style.height =
+        experience.title.length > 67
+          ? "18vh"
+          : experience?.tags
+          ? "16vh"
+          : "14vh";
 
       const link = document.createElement("a");
       link.href = experience.discussion_link;
       link.target = "_blank";
-      link.textContent = "Discussion Link";
 
-      const views = document.createElement("p");
-      views.textContent = `Views: ${experience.views}`;
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("jobs__info");
 
-      const upvotes = document.createElement("p");
-      upvotes.textContent = `Upvotes: ${experience.upvotes}`;
+      const titleSpan = document.createElement("span");
+      titleSpan.classList.add("jobs__title");
+      titleSpan.textContent = experience.title;
 
-      const tags = document.createElement("p");
-      tags.textContent = `Tags: ${experience.tags}`;
+      let domain = getHostnameFromRegex(experience?.discussion_link);
 
-      cardBody.appendChild(title);
-      cardBody.appendChild(link);
-      cardBody.appendChild(views);
-      cardBody.appendChild(upvotes);
-      cardBody.appendChild(tags);
+      const domainSpan = document.createElement("span");
+      domainSpan.classList.add("jobs__details");
+      domainSpan.textContent = domain;
 
-      card.appendChild(cardBody);
+      let detailsList = null;
+      if (experience?.tags) {
+        detailsList = document.createElement("ul");
+        detailsList.classList.add("jobs__details");
 
-      container.appendChild(card);
+        let tags = splitTags(experience.tags);
+        tags.map((tag) => {
+          const agoTimeItem = document.createElement("li");
+          agoTimeItem.classList.add("jobs__details-item");
+          agoTimeItem.textContent = tag;
+          detailsList.appendChild(agoTimeItem);
+        });
+      }
+
+      const infoDiv1 = document.createElement("div");
+      infoDiv1.classList.add("view__upvote");
+
+      const link1 = document.createElement("a");
+      link1.href = experience.discussion_link;
+      link1.target = "_blank";
+
+      if (experience?.views) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgV = document.createElement("img");
+        imgV.src = "./img/view.png";
+        imgV.height = 30;
+        imgV.width = 30;
+
+        const views = document.createElement("span");
+        views.classList.add("jobs__details-item");
+        views.style.padding = "5px";
+        views.textContent = experience?.views;
+        div.appendChild(imgV);
+        div.appendChild(views);
+        infoDiv1.appendChild(div);
+      }
+
+      if (experience?.upvotes) {
+        const div = document.createElement("div");
+        div.classList.add("view_upvote_div");
+
+        const imgU = document.createElement("img");
+        imgU.src = "./img/upvote.png";
+        imgU.height = 30;
+        imgU.width = 30;
+
+        const upvotes = document.createElement("span");
+        upvotes.classList.add("jobs__details-item");
+        upvotes.style.padding = "5px";
+        upvotes.textContent = experience?.upvotes;
+        div.appendChild(imgU);
+        div.appendChild(upvotes);
+        infoDiv1.appendChild(div);
+      }
+
+      // Assemble elements
+      infoDiv.appendChild(titleSpan);
+      infoDiv.appendChild(domainSpan);
+      if (detailsList) infoDiv.appendChild(detailsList);
+
+      link.appendChild(infoDiv);
+
+      link1.appendChild(infoDiv1);
+
+      jobsItem.appendChild(link);
+      jobsItem.appendChild(link1);
+
+      container.appendChild(jobsItem);
+      container.appendChild(document.createElement("br"));
     });
   } else {
     document.querySelector("#culture_chip").classList.add("hide");
