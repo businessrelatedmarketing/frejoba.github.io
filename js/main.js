@@ -510,11 +510,11 @@ function getSolutionLink(solution) {
   }
 }
 
-function splitTags(tags) {
+function splitTags(tags, str) {
   if (tags === null) {
     return null;
   }
-  return tags?.split("|")?.map((item) => item.trim());
+  return tags?.split(str)?.map((item) => item.trim());
 }
 
 //////////////////////////// Job Listings ////////////////////////////
@@ -739,24 +739,97 @@ async function populate_liq_table() {
 }
 
 function populateTable(data) {
-  const tableBody = $("#liq_tableBody");
+  // video, tag, solutions not used
 
-  // Remove existing rows
-  tableBody.empty();
+  const container = document.querySelector("#interview-questions-tab1");
+  container.innerHTML = "";
+  const qdiv = document.createElement("div");
+  qdiv.classList.add("jobs");
+  // Clear existing content
 
-  data.forEach((item) => {
-    const row = $("<tr>");
-    row.append($("<td>").text(item.difficulty));
-    row.append(
-      $("<td>").html(
-        `<a href="${item.discussionlinks}" target="_blank">${item.title}</a>`
-      )
-    );
-    row.append($("<td>").html(getSolutionLink(item.solutions)));
-    row.append($("<td>").text(item.video));
-    row.append($("<td>").text(item.tag));
-    tableBody.append(row);
+  // Create HTML elements for each experience
+  data.forEach((experience) => {
+    const jobsItem = document.createElement("div");
+    jobsItem.classList.add("jobs__item");
+    jobsItem.style.height =
+      experience.title.length > 27 && experience?.tag
+        ? "20vh"
+        : experience.title.length > 27
+        ? "16vh"
+        : experience?.tag
+        ? "16vh"
+        : "13vh";
+
+    const link = document.createElement("a");
+    link.href = experience.discussionlinks;
+    link.target = "_blank";
+
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("jobs__info");
+
+    const titleSpan = document.createElement("span");
+    titleSpan.classList.add("jobs__title");
+    titleSpan.textContent = experience.title;
+
+    let domain = getHostnameFromRegex(experience?.discussionlinks);
+
+    const domainSpan = document.createElement("span");
+    domainSpan.classList.add("jobs__details");
+    domainSpan.textContent = domain;
+
+    let detailsList = null;
+
+    if (experience?.tag) {
+      detailsList = document.createElement("ul");
+      detailsList.classList.add("jobs__details");
+
+      let tags = splitTags(experience.tag, ", ");
+
+      tags.map((tag) => {
+        const agoTimeItem = document.createElement("li");
+        agoTimeItem.classList.add("jobs__details-item");
+        agoTimeItem.textContent = tag;
+        detailsList.appendChild(agoTimeItem);
+      });
+    }
+
+    const infoDiv1 = document.createElement("div");
+    infoDiv1.classList.add("view__upvote");
+
+    const link1 = document.createElement("a");
+    link1.href = experience.discussionlinks;
+    link1.target = "_blank";
+
+    if (experience?.difficulty) {
+      const div = document.createElement("div");
+      div.classList.add("view_upvote_div");
+      div.style.padding = "20px";
+
+      const upvotes = document.createElement("span");
+      upvotes.classList.add("jobs__details-item");
+      upvotes.style.fontWeight = "bold";
+      upvotes.style.color = experience?.difficulty == "Hard" ? "red" : "#fb0";
+      upvotes.textContent = experience?.difficulty?.toLowerCase();
+      div.appendChild(upvotes);
+      infoDiv1.appendChild(div);
+    }
+
+    // Assemble elements
+    infoDiv.appendChild(titleSpan);
+    infoDiv.appendChild(domainSpan);
+    if (detailsList) infoDiv.appendChild(detailsList);
+
+    link.appendChild(infoDiv);
+
+    link1.appendChild(infoDiv1);
+
+    jobsItem.appendChild(link);
+    jobsItem.appendChild(link1);
+
+    qdiv.appendChild(jobsItem);
   });
+
+  container.appendChild(qdiv);
 }
 
 function populateIQLinks(data_links) {
@@ -799,7 +872,7 @@ function populateIQLinks(data_links) {
       detailsList = document.createElement("ul");
       detailsList.classList.add("jobs__details");
 
-      let tags = splitTags(experience.tags);
+      let tags = splitTags(experience.tags, "|");
       tags.map((tag) => {
         const agoTimeItem = document.createElement("li");
         agoTimeItem.classList.add("jobs__details-item");
@@ -913,7 +986,7 @@ async function displayInterviewExperiences(companyName) {
         detailsList = document.createElement("ul");
         detailsList.classList.add("jobs__details");
 
-        let tags = splitTags(experience.tags);
+        let tags = splitTags(experience.tags, "|");
         tags.map((tag) => {
           const agoTimeItem = document.createElement("li");
           agoTimeItem.classList.add("jobs__details-item");
@@ -1028,7 +1101,7 @@ async function displaySalaryDiscussion(companyName) {
         detailsList = document.createElement("ul");
         detailsList.classList.add("jobs__details");
 
-        let tags = splitTags(experience.tags);
+        let tags = splitTags(experience.tags, "|");
         tags.map((tag) => {
           const agoTimeItem = document.createElement("li");
           agoTimeItem.classList.add("jobs__details-item");
@@ -1143,7 +1216,7 @@ async function displayCulture(companyName) {
         detailsList = document.createElement("ul");
         detailsList.classList.add("jobs__details");
 
-        let tags = splitTags(experience.tags);
+        let tags = splitTags(experience.tags, "|");
         tags.map((tag) => {
           const agoTimeItem = document.createElement("li");
           agoTimeItem.classList.add("jobs__details-item");
